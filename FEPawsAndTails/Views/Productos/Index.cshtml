@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FEPawsAndTails.Models.Producto>
+
+<div class="productos-container">
+    @foreach (var producto in Model)
+    {
+        var imgUrl = producto.Imagenes.FirstOrDefault()?.ImgUrl ?? Url.Content("~/images/default-placeholder.png");
+
+        <div class="producto-card">
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel-@producto.idProducto">
+                    @foreach (var imagen in producto.Imagenes)
+                    {
+                        <img src="@imagen.ImgUrl" alt="@producto.prodNombre" class="carousel-image" />
+                    }
+                </div>
+                <button class="carousel-btn prev" onclick="moveCarousel('@producto.idProducto', -1)">‹</button>
+                <button class="carousel-btn next" onclick="moveCarousel('@producto.idProducto', 1)">›</button>
+            </div>
+
+            <h3>@producto.prodNombre</h3>
+            <p>@producto.prodDescripcion</p>
+            <div class="precio">$@producto.prodPrecio</div>
+
+            <div class="cart-controls">
+                <label for="qty-@producto.idProducto">Cantidad:</label>
+                <input type="number" id="qty-@producto.idProducto" min="1" value="1" class="qty-input" />
+
+                <button class="add-to-cart-btn" onclick="addToCart(@producto.idProducto, '@producto.prodNombre', @producto.prodPrecio, '@imgUrl')">
+                    🛒 Agregar al carrito
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+<script src="~/Scripts/FuncionesPAT.js" asp-append-version="true"></script>

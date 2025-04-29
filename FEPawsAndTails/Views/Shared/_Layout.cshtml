@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PawsTailsMVC</title>
+    <link rel="stylesheet" href="~/Styles/NewStyles.css" asp-append-version="true" />
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="navbar-nav left">
+                <img src="~/images/logoPawsTails-noFondo.png" alt="Logo" class="logo" />
+                <h1 class="oswald-title">Paws & Tails</h1>
+                <li class="nav-item" id="welcome-message" style="display: none;">
+                    <span id="user-welcome"></span>
+                </li>
+            </ul>
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <ul class="navbar-nav right" id="nav-links">
+                <li class="nav-item">
+                    <a class="nav-link active" href="@Url.Action("Index", "Home")">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Nosotros")">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Productos")">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Carrito")">Carrito</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Cuenta")">Mi Cuenta</a>
+                </li>
+                <li class="nav-item" id="logout-btn-item" style="display: none;">
+                    <button id="logout-btn" class="nav-link">Cerrar sesión</button>
+                </li>
+                <li class="nav-item">
+                    <button class="toggle-btn" onclick="toggleDarkMode()">🌞 / 🌙</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; @DateTime.Now.Year Paws & Tails - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        // Toggle del menú en móviles
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuIcon = document.getElementById('menu-icon');
+            const navLinks = document.getElementById('nav-links');
+
+            menuIcon.addEventListener('click', function () {
+                navLinks.classList.toggle('show');
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

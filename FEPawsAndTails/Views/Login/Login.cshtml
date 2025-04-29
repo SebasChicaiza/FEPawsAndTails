@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Iniciar Sesión";
+}
+
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="login-form" onsubmit="return iniciarSesion(event)">
+        <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" required placeholder="ejemplo@correo.com" />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" required placeholder="••••••••" />
+        </div>
+
+        <button type="submit" class="login-btn">Ingresar</button>
+        <p class="ayuda">¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+    </form>
+</div>

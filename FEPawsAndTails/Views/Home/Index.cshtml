@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<main class="home-main">
+
+    <section class="features-section">
+        <a class="feature" id="feature1" href="@Url.Action("Index", "Productos")">
+            <div class="feature-image">
+                <img src="~/images/principal/perro-hogar2.jpg" alt="Perro en el hogar" id="img_feature_1" />
+            </div>
+            <div class="feature-text">
+                <p>Ya sea para <br>dentro de tu hogar</p>
+            </div>
+        </a>
+
+        <a class="feature" id="feature2" href="@Url.Action("Index", "Productos")">
+            <div class="feature-image">
+                <img src="~/images/principal/perro-gato-jugando.jpg" alt="Perro y gato jugando" id="img_feature_2" />
+            </div>
+            <div class="feature-text">
+                <p>Para cuando <br>estén solos</p>
+            </div>
+        </a>
+
+        <a class="feature" id="feature3" href="@Url.Action("Index", "Productos")">
+            <div class="feature-image">
+                <img src="~/images/principal/perro-auto.jpg" alt="Perro en auto" id="img_feature_3" />
+            </div>
+            <div class="feature-text">
+                <p>O para cuando <br>vayan de paseo</p>
+            </div>
+        </a>
+    </section>
+
+    <section class="video-section">
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="~/videos/variosPerros.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+            <div class="overlay-text">
+                Para demostrarles lo mucho que los <span>amas</span>
+            </div>
+        </div>
+    </section>
+
+</main>
