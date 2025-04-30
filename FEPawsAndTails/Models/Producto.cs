@@ -16,6 +16,8 @@ namespace FEPawsAndTails.Models
     public class Producto
     {
         public long idProducto { get; set; }
+
+        public long? idCat { get; set; }
         public string prodNombre { get; set; }
         public string prodDescripcion { get; set; }
         public decimal? prodPrecio { get; set; }
@@ -31,6 +33,7 @@ namespace FEPawsAndTails.Models
             return new Producto
             {
                 idProducto = prodServicio.ID_PRODUCTO,
+                idCat = prodServicio.ID_CATEGORIA,
                 prodNombre = prodServicio.PROD_NOMBRE,
                 prodDescripcion = prodServicio.PROD_DESC,
                 prodPrecio = prodServicio.PROD_PRECIO,

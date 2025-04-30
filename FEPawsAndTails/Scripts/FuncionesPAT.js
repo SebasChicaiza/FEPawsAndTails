@@ -125,12 +125,25 @@ function iniciarSesion(event) {
         return false;
     }
 
-    // Simula autenticación exitosa (reemplazar con lógica real si aplica)
-    const cuenta = {
-        id: 1,
-        nombre: "Usuario Demo",
-        email: email
-    };
+    fetch(`/Login/ValidarCliente?correo=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                console.log("Bienvenido:", data.usuario.nombre);
+
+                
+                localStorage.setItem("cuenta", JSON.stringify(data.usuario));
+
+                window.location.href = "/Cuenta";
+            } else {
+                alert("Combinación de usuario y contraseña inválido. Vuelva a intentar.");
+            }
+        })
+        .catch(err => {
+            console.error("Error en la autenticación:", err);
+            alert("Ocurrió un error al conectar con el servidor.");
+        });
+
 
     localStorage.setItem("cuenta", JSON.stringify(cuenta));
     alert("¡Bienvenido, " + cuenta.nombre + "!");
@@ -138,3 +151,4 @@ function iniciarSesion(event) {
 
     return false;
 }
+

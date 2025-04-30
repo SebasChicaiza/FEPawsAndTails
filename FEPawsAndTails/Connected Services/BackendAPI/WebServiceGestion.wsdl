@@ -232,10 +232,21 @@
       <s:element name="crearCliente">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:CLIENTE" />
+            <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:clienteDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="clienteDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cliCedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliApellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliTelefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliCorreo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="crearClienteResponse">
         <s:complexType>
           <s:sequence>
@@ -459,17 +470,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="insertarProducto">
+      <s:element name="crearProducto">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="producto" type="tns:PRODUCTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="precio" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="stock" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fotos" type="tns:ArrayOfString" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="insertarProductoResponse">
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="crearProductoResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="insertarProductoResult" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="crearProductoResult" type="s:long" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -498,6 +519,21 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eliminarProductoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autenticarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autenticarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="autenticarUsuarioResult" type="tns:USUARIO" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -647,11 +683,11 @@
   <wsdl:message name="buscarProductoPorIdSoapOut">
     <wsdl:part name="parameters" element="tns:buscarProductoPorIdResponse" />
   </wsdl:message>
-  <wsdl:message name="insertarProductoSoapIn">
-    <wsdl:part name="parameters" element="tns:insertarProducto" />
+  <wsdl:message name="crearProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:crearProducto" />
   </wsdl:message>
-  <wsdl:message name="insertarProductoSoapOut">
-    <wsdl:part name="parameters" element="tns:insertarProductoResponse" />
+  <wsdl:message name="crearProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:crearProductoResponse" />
   </wsdl:message>
   <wsdl:message name="actualizarProductoSoapIn">
     <wsdl:part name="parameters" element="tns:actualizarProducto" />
@@ -664,6 +700,12 @@
   </wsdl:message>
   <wsdl:message name="eliminarProductoSoapOut">
     <wsdl:part name="parameters" element="tns:eliminarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="autenticarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:autenticarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="autenticarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:autenticarUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="WebServiceGestionSoap">
     <wsdl:operation name="listarCategorias">
@@ -762,9 +804,9 @@
       <wsdl:input message="tns:buscarProductoPorIdSoapIn" />
       <wsdl:output message="tns:buscarProductoPorIdSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="insertarProducto">
-      <wsdl:input message="tns:insertarProductoSoapIn" />
-      <wsdl:output message="tns:insertarProductoSoapOut" />
+    <wsdl:operation name="crearProducto">
+      <wsdl:input message="tns:crearProductoSoapIn" />
+      <wsdl:output message="tns:crearProductoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="actualizarProducto">
       <wsdl:input message="tns:actualizarProductoSoapIn" />
@@ -773,6 +815,10 @@
     <wsdl:operation name="eliminarProducto">
       <wsdl:input message="tns:eliminarProductoSoapIn" />
       <wsdl:output message="tns:eliminarProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="autenticarUsuario">
+      <wsdl:input message="tns:autenticarUsuarioSoapIn" />
+      <wsdl:output message="tns:autenticarUsuarioSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceGestionSoap" type="tns:WebServiceGestionSoap">
@@ -993,8 +1039,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="insertarProducto">
-      <soap:operation soapAction="http://tempuri.org/insertarProducto" style="document" />
+    <wsdl:operation name="crearProducto">
+      <soap:operation soapAction="http://tempuri.org/crearProducto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1013,6 +1059,15 @@
     </wsdl:operation>
     <wsdl:operation name="eliminarProducto">
       <soap:operation soapAction="http://tempuri.org/eliminarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autenticarUsuario">
+      <soap:operation soapAction="http://tempuri.org/autenticarUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1239,8 +1294,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="insertarProducto">
-      <soap12:operation soapAction="http://tempuri.org/insertarProducto" style="document" />
+    <wsdl:operation name="crearProducto">
+      <soap12:operation soapAction="http://tempuri.org/crearProducto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1259,6 +1314,15 @@
     </wsdl:operation>
     <wsdl:operation name="eliminarProducto">
       <soap12:operation soapAction="http://tempuri.org/eliminarProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autenticarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/autenticarUsuario" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -716,3 +716,181 @@ html, body {
         color: #0b2c58;
         text-decoration: none;
     }
+
+/*Mi cuenta Pagina*/
+.cuenta-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 1.5rem;
+    background: #f9f9fb;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+    .cuenta-container h2, .cuenta-container h3 {
+        font-family: 'Oswald', sans-serif;
+        color: #0b2c58;
+        margin-bottom: 1rem;
+    }
+
+.info-usuario p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.facturas-title {
+    margin-top: 2rem;
+    border-top: 2px solid #0b2c58;
+    padding-top: 1rem;
+}
+
+.facturas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.factura-item {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #fff;
+}
+
+    .factura-item h4 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        color: #0b2c58;
+    }
+
+    .factura-item ul {
+        padding-left: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .factura-item li {
+        margin-bottom: 0.3rem;
+    }
+
+/*Formulario Admin Productos*/
+/* Subtítulo del formulario */
+#form-title {
+    font-size: 1.25rem;
+    color: #103a7a;
+    margin-bottom: 1rem;
+}
+
+/* Formulario */
+.form-wrapper {
+    background-color: #fff;
+    border: 1px solid #d0d7e1;
+    
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+    .form-wrapper label {
+        display: block;
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .form-wrapper input[type="text"],
+    .form-wrapper input[type="number"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        transition: border-color 0.2s;
+    }
+
+    .form-wrapper input:focus {
+        outline: none;
+        border-color: #0b2c58;
+    }
+
+/* Botones */
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-success {
+    background-color: #198754;
+    color: #fff;
+}
+
+    .btn-success:hover {
+        background-color: #157347;
+    }
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    margin-left: 0.5rem;
+}
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #000;
+    margin-right: 0.4rem;
+}
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+    .btn-danger:hover {
+        background-color: #bb2d3b;
+    }
+
+.btn-sm {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+}
+
+/* Tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+    .table th, .table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #e0e0e0;
+        text-align: left;
+        font-size: 0.95rem;
+    }
+
+    .table th {
+        background-color: #0b2c58;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .table tr:hover {
+        background-color: #f1f5ff;
+    }

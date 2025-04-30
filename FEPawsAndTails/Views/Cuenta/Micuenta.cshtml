@@ -2,7 +2,7 @@
     ViewBag.Title = "Mi Cuenta";
 }
 
-<div class="cuenta-container">
+<div class="cuenta-container" style="display:none" id="cuenta-wrapper">
     <h2>👤 Mi Cuenta</h2>
 
     <div class="info-usuario" id="usuario-info">
@@ -14,3 +14,49 @@
         <!-- JS mostrará las compras aquí -->
     </div>
 </div>
+
+<script>
+    /*Validar que en la pagina de Mi cuenta haya usuario iniciado sesion*/
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const cuenta = JSON.parse(localStorage.getItem("cuenta"));
+
+        if (!cuenta || !cuenta.id) {
+            alert("Debes iniciar sesión para acceder a esta sección.");
+            window.location.href = "/Login/Login"; // Asegúrate de que esta ruta exista
+            return;
+        }
+
+        document.getElementById("cuenta-wrapper").style.display = "block";
+
+        // Mostrar datos de usuario
+        document.getElementById("usuario-info").innerHTML = `
+            <p><strong>Nombre:</strong> ${cuenta.nombre}</p>
+            <p><strong>Email:</strong> ${cuenta.email}</p>
+        `;
+
+        // Mostrar facturas (si hay)
+        const facturas = JSON.parse(localStorage.getItem("facturas")) || [];
+        const container = document.getElementById("facturas-container");
+
+        if (facturas.length === 0) {
+            container.innerHTML = "<p>Aún no has realizado compras.</p>";
+            return;
+        }
+
+        facturas.forEach((factura, index) => {
+            const div = document.createElement("div");
+            div.className = "factura-item";
+            div.innerHTML = `
+                <h4>Factura #${index + 1} - ${factura.fecha}</h4>
+                <ul>
+                    ${factura.productos.map(p => `
+                        <li>${p.cantidad} × ${p.nombre} - $${p.precio.toFixed(2)}</li>
+                    `).join("")}
+                </ul>
+                <p><strong>Total:</strong> $${factura.total.toFixed(2)}</p>
+            `;
+            container.appendChild(div);
+        });
+    });
+ </script>

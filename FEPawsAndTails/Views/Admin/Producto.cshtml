@@ -1,0 +1,105 @@
+﻿@model IEnumerable<FEPawsAndTails.Models.Producto>
+@{
+    ViewBag.Title = "Gestión de Productos";
+}
+<link rel="stylesheet" href="~/Styles/NewStyles.css" asp-append-version="true" />
+<h2> - Gestión de Productos - </h2>
+
+<!-- Formulario de creación y edición -->
+<div class="form-wrapper">
+    <h3 id="form-title">Nuevo Producto</h3>
+
+    @using (Html.BeginForm("GuardarProducto", "Admin", FormMethod.Post))
+    {
+        @Html.Hidden("ID_PRODUCTO", null, new { id = "input-id" })
+
+        <div>
+            <label>Nombre:</label>
+            <input type="text" id="input-nombre" name="PROD_NOMBRE" required />
+        </div>
+
+        <div>
+            <label>Descripción:</label>
+            <input type="text" id="input-desc" name="PROD_DESC" required />
+        </div>
+        <div>
+            <label>Categoría:</label>
+            <input type="number" id="input-cat" name="PROD_CAT" required />
+        </div>
+        <div>
+            <label>Precio:</label>
+            <input type="number" step="0.01" id="input-precio" name="PROD_PRECIO" required />
+        </div>
+
+        <div>
+            <label>Stock:</label>
+            <input type="number" id="input-stock" name="PROD_STOCK" required />
+        </div>
+
+        <button type="submit" class="btn btn-success" id="submit-btn">Crear</button>
+        <button type="button" class="btn btn-secondary" onclick="limpiarFormulario()">Cancelar</button>
+    }
+</div>
+
+<hr />
+
+<!-- Tabla de productos -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Categoría</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.idProducto</td>
+                <td>@p.idCat</td>
+                <td>@p.prodNombre</td>  
+                <td>$@p.prodPrecio</td>
+                <td>@p.prodStock</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-warning"
+                            onclick="editarProducto('@p.idProducto','@p.idCat', '@p.prodNombre', '@p.prodDescripcion', @p.prodPrecio, @p.prodStock)">
+                        ✏️ Editar
+                    </button>
+                    @using (Html.BeginForm("EliminarProducto", "Admin", new { id = p.idProducto }, FormMethod.Post))
+                    {
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar este producto?')">🗑️</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        function editarProducto(id, cat, nombre, desc, precio, stock) {
+            document.getElementById("form-title").innerText = "✏️ Editar Producto";
+            document.getElementById("submit-btn").innerText = "Actualizar";
+            document.getElementById("input-id").value = id;
+            document.getElementById("input-cat").value = cat;
+            document.getElementById("input-nombre").value = nombre;
+            document.getElementById("input-desc").value = desc;
+            document.getElementById("input-precio").value = precio;
+            document.getElementById("input-stock").value = stock;
+        }
+
+        function limpiarFormulario() {
+            document.getElementById("form-title").innerText = "➕ Nuevo Producto";
+            document.getElementById("submit-btn").innerText = "Crear";
+            document.getElementById("input-id").value = "";
+            document.getElementById("input-nombre").value = "";
+            document.getElementById("input-desc").value = "";
+            document.getElementById("input-precio").value = "";
+            document.getElementById("input-stock").value = "";
+        }
+    </script>
+}

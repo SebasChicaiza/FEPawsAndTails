@@ -1287,6 +1287,122 @@ namespace FEPawsAndTails.BackendAPI {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="clienteDTO", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class clienteDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cliCedulaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cliNombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cliApellidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cliTelefonoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cliCorreoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string cliCedula {
+            get {
+                return this.cliCedulaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cliCedulaField, value) != true)) {
+                    this.cliCedulaField = value;
+                    this.RaisePropertyChanged("cliCedula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string cliNombre {
+            get {
+                return this.cliNombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cliNombreField, value) != true)) {
+                    this.cliNombreField = value;
+                    this.RaisePropertyChanged("cliNombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string cliApellido {
+            get {
+                return this.cliApellidoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cliApellidoField, value) != true)) {
+                    this.cliApellidoField = value;
+                    this.RaisePropertyChanged("cliApellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string cliTelefono {
+            get {
+                return this.cliTelefonoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cliTelefonoField, value) != true)) {
+                    this.cliTelefonoField = value;
+                    this.RaisePropertyChanged("cliTelefono");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string cliCorreo {
+            get {
+                return this.cliCorreoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cliCorreoField, value) != true)) {
+                    this.cliCorreoField = value;
+                    this.RaisePropertyChanged("cliCorreo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://tempuri.org/", ItemName="string")]
+    [System.SerializableAttribute()]
+    public class ArrayOfString : System.Collections.Generic.List<string> {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BackendAPI.WebServiceGestionSoap")]
     public interface WebServiceGestionSoap {
@@ -1455,12 +1571,12 @@ namespace FEPawsAndTails.BackendAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/buscarProductoPorId", ReplyAction="*")]
         System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarProductoPorIdResponse> buscarProductoPorIdAsync(FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest request);
         
-        // CODEGEN: Generating message contract since element name producto from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarProducto", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.insertarProductoResponse insertarProducto(FEPawsAndTails.BackendAPI.insertarProductoRequest request);
+        // CODEGEN: Generating message contract since element name categoria from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/crearProducto", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.crearProductoResponse crearProducto(FEPawsAndTails.BackendAPI.crearProductoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insertarProducto", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.insertarProductoResponse> insertarProductoAsync(FEPawsAndTails.BackendAPI.insertarProductoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/crearProducto", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.crearProductoResponse> crearProductoAsync(FEPawsAndTails.BackendAPI.crearProductoRequest request);
         
         // CODEGEN: Generating message contract since element name producto from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/actualizarProducto", ReplyAction="*")]
@@ -1474,6 +1590,13 @@ namespace FEPawsAndTails.BackendAPI {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarProducto", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> eliminarProductoAsync(int id);
+        
+        // CODEGEN: Generating message contract since element name correo from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/autenticarUsuario", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.autenticarUsuarioResponse autenticarUsuario(FEPawsAndTails.BackendAPI.autenticarUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/autenticarUsuario", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.autenticarUsuarioResponse> autenticarUsuarioAsync(FEPawsAndTails.BackendAPI.autenticarUsuarioRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1898,13 +2021,21 @@ namespace FEPawsAndTails.BackendAPI {
     public partial class crearClienteRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.CLIENTE cliente;
+        public FEPawsAndTails.BackendAPI.clienteDTO cliente;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string usuario;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string contraseña;
         
         public crearClienteRequestBody() {
         }
         
-        public crearClienteRequestBody(FEPawsAndTails.BackendAPI.CLIENTE cliente) {
+        public crearClienteRequestBody(FEPawsAndTails.BackendAPI.clienteDTO cliente, string usuario, string contraseña) {
             this.cliente = cliente;
+            this.usuario = usuario;
+            this.contraseña = contraseña;
         }
     }
     
@@ -2816,15 +2947,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class insertarProductoRequest {
+    public partial class crearProductoRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarProducto", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.insertarProductoRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="crearProducto", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.crearProductoRequestBody Body;
         
-        public insertarProductoRequest() {
+        public crearProductoRequest() {
         }
         
-        public insertarProductoRequest(FEPawsAndTails.BackendAPI.insertarProductoRequestBody Body) {
+        public crearProductoRequest(FEPawsAndTails.BackendAPI.crearProductoRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -2833,16 +2964,36 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class insertarProductoRequestBody {
+    public partial class crearProductoRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.PRODUCTO producto;
+        public string categoria;
         
-        public insertarProductoRequestBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string nombre;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string descripcion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public decimal precio;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public int stock;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public FEPawsAndTails.BackendAPI.ArrayOfString fotos;
+        
+        public crearProductoRequestBody() {
         }
         
-        public insertarProductoRequestBody(FEPawsAndTails.BackendAPI.PRODUCTO producto) {
-            this.producto = producto;
+        public crearProductoRequestBody(string categoria, string nombre, string descripcion, decimal precio, int stock, FEPawsAndTails.BackendAPI.ArrayOfString fotos) {
+            this.categoria = categoria;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.precio = precio;
+            this.stock = stock;
+            this.fotos = fotos;
         }
     }
     
@@ -2850,15 +3001,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class insertarProductoResponse {
+    public partial class crearProductoResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarProductoResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.insertarProductoResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="crearProductoResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.crearProductoResponseBody Body;
         
-        public insertarProductoResponse() {
+        public crearProductoResponse() {
         }
         
-        public insertarProductoResponse(FEPawsAndTails.BackendAPI.insertarProductoResponseBody Body) {
+        public crearProductoResponse(FEPawsAndTails.BackendAPI.crearProductoResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -2867,16 +3018,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class insertarProductoResponseBody {
+    public partial class crearProductoResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public long insertarProductoResult;
+        public long crearProductoResult;
         
-        public insertarProductoResponseBody() {
+        public crearProductoResponseBody() {
         }
         
-        public insertarProductoResponseBody(long insertarProductoResult) {
-            this.insertarProductoResult = insertarProductoResult;
+        public crearProductoResponseBody(long crearProductoResult) {
+            this.crearProductoResult = crearProductoResult;
         }
     }
     
@@ -2945,6 +3096,78 @@ namespace FEPawsAndTails.BackendAPI {
         
         public actualizarProductoResponseBody(bool actualizarProductoResult) {
             this.actualizarProductoResult = actualizarProductoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class autenticarUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="autenticarUsuario", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.autenticarUsuarioRequestBody Body;
+        
+        public autenticarUsuarioRequest() {
+        }
+        
+        public autenticarUsuarioRequest(FEPawsAndTails.BackendAPI.autenticarUsuarioRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class autenticarUsuarioRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string correo;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string password;
+        
+        public autenticarUsuarioRequestBody() {
+        }
+        
+        public autenticarUsuarioRequestBody(string correo, string password) {
+            this.correo = correo;
+            this.password = password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class autenticarUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="autenticarUsuarioResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.autenticarUsuarioResponseBody Body;
+        
+        public autenticarUsuarioResponse() {
+        }
+        
+        public autenticarUsuarioResponse(FEPawsAndTails.BackendAPI.autenticarUsuarioResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class autenticarUsuarioResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FEPawsAndTails.BackendAPI.USUARIO autenticarUsuarioResult;
+        
+        public autenticarUsuarioResponseBody() {
+        }
+        
+        public autenticarUsuarioResponseBody(FEPawsAndTails.BackendAPI.USUARIO autenticarUsuarioResult) {
+            this.autenticarUsuarioResult = autenticarUsuarioResult;
         }
     }
     
@@ -3136,10 +3359,12 @@ namespace FEPawsAndTails.BackendAPI {
             return base.Channel.crearCliente(request);
         }
         
-        public int crearCliente(FEPawsAndTails.BackendAPI.CLIENTE cliente) {
+        public int crearCliente(FEPawsAndTails.BackendAPI.clienteDTO cliente, string usuario, string contraseña) {
             FEPawsAndTails.BackendAPI.crearClienteRequest inValue = new FEPawsAndTails.BackendAPI.crearClienteRequest();
             inValue.Body = new FEPawsAndTails.BackendAPI.crearClienteRequestBody();
             inValue.Body.cliente = cliente;
+            inValue.Body.usuario = usuario;
+            inValue.Body.contraseña = contraseña;
             FEPawsAndTails.BackendAPI.crearClienteResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).crearCliente(inValue);
             return retVal.Body.crearClienteResult;
         }
@@ -3149,10 +3374,12 @@ namespace FEPawsAndTails.BackendAPI {
             return base.Channel.crearClienteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.crearClienteResponse> crearClienteAsync(FEPawsAndTails.BackendAPI.CLIENTE cliente) {
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.crearClienteResponse> crearClienteAsync(FEPawsAndTails.BackendAPI.clienteDTO cliente, string usuario, string contraseña) {
             FEPawsAndTails.BackendAPI.crearClienteRequest inValue = new FEPawsAndTails.BackendAPI.crearClienteRequest();
             inValue.Body = new FEPawsAndTails.BackendAPI.crearClienteRequestBody();
             inValue.Body.cliente = cliente;
+            inValue.Body.usuario = usuario;
+            inValue.Body.contraseña = contraseña;
             return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).crearClienteAsync(inValue);
         }
         
@@ -3502,28 +3729,38 @@ namespace FEPawsAndTails.BackendAPI {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.insertarProductoResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.insertarProducto(FEPawsAndTails.BackendAPI.insertarProductoRequest request) {
-            return base.Channel.insertarProducto(request);
+        FEPawsAndTails.BackendAPI.crearProductoResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.crearProducto(FEPawsAndTails.BackendAPI.crearProductoRequest request) {
+            return base.Channel.crearProducto(request);
         }
         
-        public long insertarProducto(FEPawsAndTails.BackendAPI.PRODUCTO producto) {
-            FEPawsAndTails.BackendAPI.insertarProductoRequest inValue = new FEPawsAndTails.BackendAPI.insertarProductoRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.insertarProductoRequestBody();
-            inValue.Body.producto = producto;
-            FEPawsAndTails.BackendAPI.insertarProductoResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).insertarProducto(inValue);
-            return retVal.Body.insertarProductoResult;
+        public long crearProducto(string categoria, string nombre, string descripcion, decimal precio, int stock, FEPawsAndTails.BackendAPI.ArrayOfString fotos) {
+            FEPawsAndTails.BackendAPI.crearProductoRequest inValue = new FEPawsAndTails.BackendAPI.crearProductoRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.crearProductoRequestBody();
+            inValue.Body.categoria = categoria;
+            inValue.Body.nombre = nombre;
+            inValue.Body.descripcion = descripcion;
+            inValue.Body.precio = precio;
+            inValue.Body.stock = stock;
+            inValue.Body.fotos = fotos;
+            FEPawsAndTails.BackendAPI.crearProductoResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).crearProducto(inValue);
+            return retVal.Body.crearProductoResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.insertarProductoResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.insertarProductoAsync(FEPawsAndTails.BackendAPI.insertarProductoRequest request) {
-            return base.Channel.insertarProductoAsync(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.crearProductoResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.crearProductoAsync(FEPawsAndTails.BackendAPI.crearProductoRequest request) {
+            return base.Channel.crearProductoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.insertarProductoResponse> insertarProductoAsync(FEPawsAndTails.BackendAPI.PRODUCTO producto) {
-            FEPawsAndTails.BackendAPI.insertarProductoRequest inValue = new FEPawsAndTails.BackendAPI.insertarProductoRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.insertarProductoRequestBody();
-            inValue.Body.producto = producto;
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).insertarProductoAsync(inValue);
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.crearProductoResponse> crearProductoAsync(string categoria, string nombre, string descripcion, decimal precio, int stock, FEPawsAndTails.BackendAPI.ArrayOfString fotos) {
+            FEPawsAndTails.BackendAPI.crearProductoRequest inValue = new FEPawsAndTails.BackendAPI.crearProductoRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.crearProductoRequestBody();
+            inValue.Body.categoria = categoria;
+            inValue.Body.nombre = nombre;
+            inValue.Body.descripcion = descripcion;
+            inValue.Body.precio = precio;
+            inValue.Body.stock = stock;
+            inValue.Body.fotos = fotos;
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).crearProductoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3557,6 +3794,33 @@ namespace FEPawsAndTails.BackendAPI {
         
         public System.Threading.Tasks.Task<bool> eliminarProductoAsync(int id) {
             return base.Channel.eliminarProductoAsync(id);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FEPawsAndTails.BackendAPI.autenticarUsuarioResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.autenticarUsuario(FEPawsAndTails.BackendAPI.autenticarUsuarioRequest request) {
+            return base.Channel.autenticarUsuario(request);
+        }
+        
+        public FEPawsAndTails.BackendAPI.USUARIO autenticarUsuario(string correo, string password) {
+            FEPawsAndTails.BackendAPI.autenticarUsuarioRequest inValue = new FEPawsAndTails.BackendAPI.autenticarUsuarioRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.autenticarUsuarioRequestBody();
+            inValue.Body.correo = correo;
+            inValue.Body.password = password;
+            FEPawsAndTails.BackendAPI.autenticarUsuarioResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).autenticarUsuario(inValue);
+            return retVal.Body.autenticarUsuarioResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.autenticarUsuarioResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.autenticarUsuarioAsync(FEPawsAndTails.BackendAPI.autenticarUsuarioRequest request) {
+            return base.Channel.autenticarUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.autenticarUsuarioResponse> autenticarUsuarioAsync(string correo, string password) {
+            FEPawsAndTails.BackendAPI.autenticarUsuarioRequest inValue = new FEPawsAndTails.BackendAPI.autenticarUsuarioRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.autenticarUsuarioRequestBody();
+            inValue.Body.correo = correo;
+            inValue.Body.password = password;
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).autenticarUsuarioAsync(inValue);
         }
     }
 }
