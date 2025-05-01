@@ -144,7 +144,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarritoDTO.cs" />
+    <Compile Include="Models\CompraRequestDTO.cs" />
+    <Compile Include="Models\DetalleCompraDTO.cs" />
+    <Compile Include="Models\DetalleProductoDTO.cs" />
     <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\RegistroUsuarioDTO.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -168,15 +173,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.agregarImagenProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.buscarProductoPorIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.CATEGORIA.datasource">
@@ -203,21 +199,6 @@
     <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.IMAGEN.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.listarCategoriasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.listarClientesResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.listarDetallesFacturaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.listarFacturasResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.listarImagenesProductoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerClientePorIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -237,6 +218,42 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.USUARIO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.realizarCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerCategoriasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerClientesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerFacturasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BackendAPI\FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\BackendAPI\WebServiceGestion.disco" />
@@ -274,6 +291,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Connected Services\BackendAPI\WebServiceGestion.wsdl" />
+    <None Include="Properties\PublishProfiles\site24331-WebDeploy.pubxml" />
+    <None Include="Properties\PublishProfiles\site24331-WebDeploy1.pubxml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\FuncionesPAT.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -308,6 +327,7 @@
     <Content Include="Views\Cuenta\Micuenta.cshtml" />
     <Content Include="Views\Admin\Gestion.cshtml" />
     <Content Include="Views\Admin\Producto.cshtml" />
+    <Content Include="Views\Cuenta\Registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

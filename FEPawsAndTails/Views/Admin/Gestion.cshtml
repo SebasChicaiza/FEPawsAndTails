@@ -1,23 +1,14 @@
-﻿
-@{
-    ViewBag.Title = "Gestion";
+﻿@{
+    ViewBag.Title = "Gestión";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Página de Administración</h2>
+<div class="gestion-container">
+    <h2>Panel de Administración</h2>
+    <div class="botones-gestion">
+        <a href="@Url.Action("Producto", "Admin")" class="boton">Productos</a>
+        <a href="@Url.Action("Factura", "Admin")" class="boton">Facturas</a>
+        <a href="@Url.Action("Usuario", "Admin")" class="boton">Usuarios</a>
+    </div>
+</div>
 
-<table class="admin-table" id="tabla-productos">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Se llenará con JS -->
-    </tbody>
-</table>
-<script src="~/Scripts/AdminScripts.js" asp-append-version="true"></script>

@@ -1,4 +1,5 @@
 ﻿using FEPawsAndTails.BackendAPI;
+using FEPawsAndTails.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +17,38 @@ namespace FEPawsAndTails.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CrearFacturaConDetalle(List<PRODUCTO> producto, string idUsuario)
+        public JsonResult CrearFacturaConDetalle(CompraRequestDTO request)
         {
-            Array productos = producto.ToArray();
-            Array productosConCant = new Array[producto.Count,2];
-            for (int i = 0; i < producto.Count; i++)
+            try
             {
-                productosConCant[i, 0] = productos[0];
-                productosConCant[i, 0] = productos[1];
-            }
-            var respuesta = client.realizarCompra(productosConCant, idUsuario);
-            // Convierte la lista de objetos ImagenProducto en un ArrayOfString (del SOAP)
-            var arrayImagenes = new ArrayOfString();
-            arrayImagenes.AddRange(producto.IMAGEN.Select(i => i.IMG_URL));
+                // Crear y poblar el array especial del WS
+                var productosArray = new BackendAPI.ArrayOfProductoCantidadDTO();
 
-            return RedirectToAction("Producto");
+                foreach (var d in request.detalles)
+                {
+                    productosArray.Add(new BackendAPI.productoCantidadDTO
+                    {
+                        idProducto = d.idProducto,
+                        cantidad = d.cantidad
+                    });
+                }
+
+                // Crear el carrito con el tipo correcto
+                var carrito = new BackendAPI.carritoDTO
+                {
+                    productos = productosArray
+                };
+
+                // Llamar al Web Service
+                bool success = client.realizarCompra(carrito, request.direccion, request.metodoPago, request.idUsuario);
+
+                return Json(new { success = success });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, error = ex.Message });
+            }
         }
+
     }
 }

@@ -20,6 +20,10 @@ namespace FEPawsAndTails.Controllers
         {
             return View("Gestion");
         }
+        public ActionResult Gestion()
+        {
+            return View("Gestion");
+        }
         public ActionResult Producto()
         {
             //var client = new WebServiceGestionSoapClient();
@@ -83,9 +87,6 @@ namespace FEPawsAndTails.Controllers
         [HttpPost]
         public ActionResult GuardarProducto(FormCollection form)
         {
-            /*var client = new WebServiceGestionSoapClient();
-            var arrayImagenes = new ArrayOfString();*/            
-
             var producto = new PRODUCTO
             {
                 ID_PRODUCTO = string.IsNullOrEmpty(form["ID_PRODUCTO"]) ? 0 : int.Parse(form["ID_PRODUCTO"]),
@@ -95,20 +96,23 @@ namespace FEPawsAndTails.Controllers
                 PROD_PRECIO = decimal.Parse(form["PROD_PRECIO"]),
                 PROD_STOCK = int.Parse(form["PROD_STOCK"])
             };
-            client.actualizarProducto(producto);
-            /*
+
             if (producto.ID_PRODUCTO == 0)
             {
-                client.crearProducto(producto.CATEGORIA.ToString(), producto.PROD_NOMBRE, producto.PROD_DESC, (decimal)producto.PROD_PRECIO, (int)producto.PROD_STOCK, arrayImagenes);
+                // crear nuevo
+                var arrayImagenes = new ArrayOfString(); // Puedes dejarlo vacío si no usas imagenes
+                client.crearProducto(producto.ID_CATEGORIA.ToString(), producto.PROD_NOMBRE, producto.PROD_DESC, (decimal)producto.PROD_PRECIO, (int)producto.PROD_STOCK, arrayImagenes);
             }
             else
             {
+                // actualizar existente
                 client.actualizarProducto(producto);
-            }*/
+            }
 
             return RedirectToAction("Producto");
         }
-        
+
+
 
     }
 }

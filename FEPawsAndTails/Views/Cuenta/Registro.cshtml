@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Styles/NewStyles.css" asp-append-version="true" />
+<h2 style="text-align:center">Registro de Usuario</h2>
+
+<div class="registro-container">
+    <form id="registroForm">
+        <input type="text" id="nombreUsuario" placeholder="Nombre de Usuario" required />
+        <input type="email" id="correo" placeholder="Correo Electrónico" required />
+        <input type="password" id="password" placeholder="Contraseña" required />
+
+        <input type="text" id="nombreCliente" placeholder="Nombre" required />
+        <input type="text" id="apellidoCliente" placeholder="Apellido" required />
+        <input type="text" id="cedulaRuc" placeholder="Cédula o RUC" required />
+        <input type="tel" id="telefono" placeholder="Teléfono" required />
+        <input type="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento" />
+        <input type="text" id="direccion" placeholder="Dirección" required />
+
+        <button type="submit">Registrarme</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("registroForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const data = {
+            nombreUsuario: document.getElementById("nombreUsuario").value,
+            correo: document.getElementById("correo").value,
+            password: document.getElementById("password").value,
+            nombreCliente: document.getElementById("nombreCliente").value,
+            apellidoCliente: document.getElementById("apellidoCliente").value,
+            cedulaRuc: document.getElementById("cedulaRuc").value,
+            telefono: document.getElementById("telefono").value,
+            fechaNacimiento: document.getElementById("fechaNacimiento").value,
+            direccion: document.getElementById("direccion").value
+        };
+
+        fetch('/Cuenta/RegistrarUsuario', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            if (result.success) {
+                alert("Usuario registrado con éxito");
+                window.location.href = "/Login/Login"; // redirige al login
+            } else {
+                alert("Error: " + result.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error en fetch:", error);
+            alert("❌ Error al conectar con el servidor.");
+        });
+    });
+</script>
+

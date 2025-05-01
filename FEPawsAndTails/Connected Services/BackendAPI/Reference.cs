@@ -1403,23 +1403,134 @@ namespace FEPawsAndTails.BackendAPI {
     public class ArrayOfString : System.Collections.Generic.List<string> {
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="carritoDTO", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class carritoDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FEPawsAndTails.BackendAPI.ArrayOfProductoCantidadDTO productosField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public FEPawsAndTails.BackendAPI.ArrayOfProductoCantidadDTO productos {
+            get {
+                return this.productosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.productosField, value) != true)) {
+                    this.productosField = value;
+                    this.RaisePropertyChanged("productos");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfProductoCantidadDTO", Namespace="http://tempuri.org/", ItemName="productoCantidadDTO")]
+    [System.SerializableAttribute()]
+    public class ArrayOfProductoCantidadDTO : System.Collections.Generic.List<FEPawsAndTails.BackendAPI.productoCantidadDTO> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="productoCantidadDTO", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class productoCantidadDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int idProductoField;
+        
+        private int cantidadField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int idProducto {
+            get {
+                return this.idProductoField;
+            }
+            set {
+                if ((this.idProductoField.Equals(value) != true)) {
+                    this.idProductoField = value;
+                    this.RaisePropertyChanged("idProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                if ((this.cantidadField.Equals(value) != true)) {
+                    this.cantidadField = value;
+                    this.RaisePropertyChanged("cantidad");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BackendAPI.WebServiceGestionSoap")]
     public interface WebServiceGestionSoap {
         
-        // CODEGEN: Generating message contract since element name listarCategoriasResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarCategorias", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.listarCategoriasResponse listarCategorias(FEPawsAndTails.BackendAPI.listarCategoriasRequest request);
+        // CODEGEN: Generating message contract since element name obtenerCategoriasResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCategorias", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerCategoriasResponse obtenerCategorias(FEPawsAndTails.BackendAPI.obtenerCategoriasRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarCategorias", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarCategoriasResponse> listarCategoriasAsync(FEPawsAndTails.BackendAPI.listarCategoriasRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCategorias", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerCategoriasResponse> obtenerCategoriasAsync(FEPawsAndTails.BackendAPI.obtenerCategoriasRequest request);
         
-        // CODEGEN: Generating message contract since element name buscarCategoriaPorIdResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/buscarCategoriaPorId", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponse buscarCategoriaPorId(FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequest request);
+        // CODEGEN: Generating message contract since element name obtenerCategoriaPorIdResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCategoriaPorId", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponse obtenerCategoriaPorId(FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/buscarCategoriaPorId", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponse> buscarCategoriaPorIdAsync(FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerCategoriaPorId", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponse> obtenerCategoriaPorIdAsync(FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequest request);
         
         // CODEGEN: Generating message contract since element name categoria from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/crearCategoria", ReplyAction="*")]
@@ -1441,12 +1552,12 @@ namespace FEPawsAndTails.BackendAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarCategoria", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> eliminarCategoriaAsync(int id);
         
-        // CODEGEN: Generating message contract since element name listarClientesResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarClientes", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.listarClientesResponse listarClientes(FEPawsAndTails.BackendAPI.listarClientesRequest request);
+        // CODEGEN: Generating message contract since element name obtenerClientesResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerClientes", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerClientesResponse obtenerClientes(FEPawsAndTails.BackendAPI.obtenerClientesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarClientes", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarClientesResponse> listarClientesAsync(FEPawsAndTails.BackendAPI.listarClientesRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerClientes", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerClientesResponse> obtenerClientesAsync(FEPawsAndTails.BackendAPI.obtenerClientesRequest request);
         
         // CODEGEN: Generating message contract since element name obtenerClientePorIDResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerClientePorID", ReplyAction="*")]
@@ -1475,12 +1586,12 @@ namespace FEPawsAndTails.BackendAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarCliente", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> eliminarClienteAsync(int idCliente);
         
-        // CODEGEN: Generating message contract since element name listarDetallesFacturaResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarDetallesFactura", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.listarDetallesFacturaResponse listarDetallesFactura(FEPawsAndTails.BackendAPI.listarDetallesFacturaRequest request);
+        // CODEGEN: Generating message contract since element name obtenerDetallesFacturaResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerDetallesFactura", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponse obtenerDetallesFactura(FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarDetallesFactura", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarDetallesFacturaResponse> listarDetallesFacturaAsync(FEPawsAndTails.BackendAPI.listarDetallesFacturaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerDetallesFactura", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponse> obtenerDetallesFacturaAsync(FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequest request);
         
         // CODEGEN: Generating message contract since element name detalle from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/agregarDetalleFactura", ReplyAction="*")]
@@ -1502,12 +1613,12 @@ namespace FEPawsAndTails.BackendAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/eliminarDetalleFactura", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> eliminarDetalleFacturaAsync(int idDetalle);
         
-        // CODEGEN: Generating message contract since element name listarFacturasResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarFacturas", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.listarFacturasResponse listarFacturas(FEPawsAndTails.BackendAPI.listarFacturasRequest request);
+        // CODEGEN: Generating message contract since element name obtenerFacturasResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerFacturas", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerFacturasResponse obtenerFacturas(FEPawsAndTails.BackendAPI.obtenerFacturasRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarFacturas", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarFacturasResponse> listarFacturasAsync(FEPawsAndTails.BackendAPI.listarFacturasRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerFacturas", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerFacturasResponse> obtenerFacturasAsync(FEPawsAndTails.BackendAPI.obtenerFacturasRequest request);
         
         // CODEGEN: Generating message contract since element name obtenerFacturaPorIDResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerFacturaPorID", ReplyAction="*")]
@@ -1515,6 +1626,13 @@ namespace FEPawsAndTails.BackendAPI {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerFacturaPorID", ReplyAction="*")]
         System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerFacturaPorIDResponse> obtenerFacturaPorIDAsync(FEPawsAndTails.BackendAPI.obtenerFacturaPorIDRequest request);
+        
+        // CODEGEN: Generating message contract since element name cedula from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerFacturasPorCedulaCliente", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponse obtenerFacturasPorCedulaCliente(FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerFacturasPorCedulaCliente", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponse> obtenerFacturasPorCedulaClienteAsync(FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequest request);
         
         // CODEGEN: Generating message contract since element name factura from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/crearFactura", ReplyAction="*")]
@@ -1530,12 +1648,19 @@ namespace FEPawsAndTails.BackendAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/actualizarFactura", ReplyAction="*")]
         System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.actualizarFacturaResponse> actualizarFacturaAsync(FEPawsAndTails.BackendAPI.actualizarFacturaRequest request);
         
-        // CODEGEN: Generating message contract since element name listarImagenesProductoResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarImagenesProducto", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.listarImagenesProductoResponse listarImagenesProducto(FEPawsAndTails.BackendAPI.listarImagenesProductoRequest request);
+        // CODEGEN: Generating message contract since element name nuevoEstado from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/actualizarEstadoFactura", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponse actualizarEstadoFactura(FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/listarImagenesProducto", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarImagenesProductoResponse> listarImagenesProductoAsync(FEPawsAndTails.BackendAPI.listarImagenesProductoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/actualizarEstadoFactura", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponse> actualizarEstadoFacturaAsync(FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequest request);
+        
+        // CODEGEN: Generating message contract since element name obtenerImagenesProductoResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerImagenesProducto", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponse obtenerImagenesProducto(FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerImagenesProducto", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponse> obtenerImagenesProductoAsync(FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequest request);
         
         // CODEGEN: Generating message contract since element name imagen from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/agregarImagenProducto", ReplyAction="*")]
@@ -1558,18 +1683,18 @@ namespace FEPawsAndTails.BackendAPI {
         System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerProductosResponse> obtenerProductosAsync(FEPawsAndTails.BackendAPI.obtenerProductosRequest request);
         
         // CODEGEN: Generating message contract since element name nombre from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/buscarProductoPorNombre", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponse buscarProductoPorNombre(FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerProductoPorNombre", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponse obtenerProductoPorNombre(FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/buscarProductoPorNombre", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponse> buscarProductoPorNombreAsync(FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerProductoPorNombre", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponse> obtenerProductoPorNombreAsync(FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequest request);
         
-        // CODEGEN: Generating message contract since element name buscarProductoPorIdResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/buscarProductoPorId", ReplyAction="*")]
-        FEPawsAndTails.BackendAPI.buscarProductoPorIdResponse buscarProductoPorId(FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest request);
+        // CODEGEN: Generating message contract since element name obtenerProductoPorIdResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerProductoPorId", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponse obtenerProductoPorId(FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/buscarProductoPorId", ReplyAction="*")]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarProductoPorIdResponse> buscarProductoPorIdAsync(FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/obtenerProductoPorId", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponse> obtenerProductoPorIdAsync(FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequest request);
         
         // CODEGEN: Generating message contract since element name categoria from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/crearProducto", ReplyAction="*")]
@@ -1597,21 +1722,35 @@ namespace FEPawsAndTails.BackendAPI {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/autenticarUsuario", ReplyAction="*")]
         System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.autenticarUsuarioResponse> autenticarUsuarioAsync(FEPawsAndTails.BackendAPI.autenticarUsuarioRequest request);
+        
+        // CODEGEN: Generating message contract since element name nombreUsuario from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/registrarUsuarioCliente", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponse registrarUsuarioCliente(FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/registrarUsuarioCliente", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponse> registrarUsuarioClienteAsync(FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequest request);
+        
+        // CODEGEN: Generating message contract since element name carrito from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/realizarCompra", ReplyAction="*")]
+        FEPawsAndTails.BackendAPI.realizarCompraResponse realizarCompra(FEPawsAndTails.BackendAPI.realizarCompraRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/realizarCompra", ReplyAction="*")]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.realizarCompraResponse> realizarCompraAsync(FEPawsAndTails.BackendAPI.realizarCompraRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarCategoriasRequest {
+    public partial class obtenerCategoriasRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarCategorias", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarCategoriasRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerCategorias", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerCategoriasRequestBody Body;
         
-        public listarCategoriasRequest() {
+        public obtenerCategoriasRequest() {
         }
         
-        public listarCategoriasRequest(FEPawsAndTails.BackendAPI.listarCategoriasRequestBody Body) {
+        public obtenerCategoriasRequest(FEPawsAndTails.BackendAPI.obtenerCategoriasRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1620,9 +1759,9 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class listarCategoriasRequestBody {
+    public partial class obtenerCategoriasRequestBody {
         
-        public listarCategoriasRequestBody() {
+        public obtenerCategoriasRequestBody() {
         }
     }
     
@@ -1630,15 +1769,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarCategoriasResponse {
+    public partial class obtenerCategoriasResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarCategoriasResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarCategoriasResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerCategoriasResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerCategoriasResponseBody Body;
         
-        public listarCategoriasResponse() {
+        public obtenerCategoriasResponse() {
         }
         
-        public listarCategoriasResponse(FEPawsAndTails.BackendAPI.listarCategoriasResponseBody Body) {
+        public obtenerCategoriasResponse(FEPawsAndTails.BackendAPI.obtenerCategoriasResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1647,16 +1786,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class listarCategoriasResponseBody {
+    public partial class obtenerCategoriasResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.CATEGORIA[] listarCategoriasResult;
+        public FEPawsAndTails.BackendAPI.CATEGORIA[] obtenerCategoriasResult;
         
-        public listarCategoriasResponseBody() {
+        public obtenerCategoriasResponseBody() {
         }
         
-        public listarCategoriasResponseBody(FEPawsAndTails.BackendAPI.CATEGORIA[] listarCategoriasResult) {
-            this.listarCategoriasResult = listarCategoriasResult;
+        public obtenerCategoriasResponseBody(FEPawsAndTails.BackendAPI.CATEGORIA[] obtenerCategoriasResult) {
+            this.obtenerCategoriasResult = obtenerCategoriasResult;
         }
     }
     
@@ -1664,15 +1803,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarCategoriaPorIdRequest {
+    public partial class obtenerCategoriaPorIdRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarCategoriaPorId", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerCategoriaPorId", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequestBody Body;
         
-        public buscarCategoriaPorIdRequest() {
+        public obtenerCategoriaPorIdRequest() {
         }
         
-        public buscarCategoriaPorIdRequest(FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequestBody Body) {
+        public obtenerCategoriaPorIdRequest(FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1681,15 +1820,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class buscarCategoriaPorIdRequestBody {
+    public partial class obtenerCategoriaPorIdRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public int id;
         
-        public buscarCategoriaPorIdRequestBody() {
+        public obtenerCategoriaPorIdRequestBody() {
         }
         
-        public buscarCategoriaPorIdRequestBody(int id) {
+        public obtenerCategoriaPorIdRequestBody(int id) {
             this.id = id;
         }
     }
@@ -1698,15 +1837,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarCategoriaPorIdResponse {
+    public partial class obtenerCategoriaPorIdResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarCategoriaPorIdResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerCategoriaPorIdResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponseBody Body;
         
-        public buscarCategoriaPorIdResponse() {
+        public obtenerCategoriaPorIdResponse() {
         }
         
-        public buscarCategoriaPorIdResponse(FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponseBody Body) {
+        public obtenerCategoriaPorIdResponse(FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1715,16 +1854,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class buscarCategoriaPorIdResponseBody {
+    public partial class obtenerCategoriaPorIdResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.CATEGORIA buscarCategoriaPorIdResult;
+        public FEPawsAndTails.BackendAPI.CATEGORIA obtenerCategoriaPorIdResult;
         
-        public buscarCategoriaPorIdResponseBody() {
+        public obtenerCategoriaPorIdResponseBody() {
         }
         
-        public buscarCategoriaPorIdResponseBody(FEPawsAndTails.BackendAPI.CATEGORIA buscarCategoriaPorIdResult) {
-            this.buscarCategoriaPorIdResult = buscarCategoriaPorIdResult;
+        public obtenerCategoriaPorIdResponseBody(FEPawsAndTails.BackendAPI.CATEGORIA obtenerCategoriaPorIdResult) {
+            this.obtenerCategoriaPorIdResult = obtenerCategoriaPorIdResult;
         }
     }
     
@@ -1872,15 +2011,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarClientesRequest {
+    public partial class obtenerClientesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarClientes", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarClientesRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerClientes", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerClientesRequestBody Body;
         
-        public listarClientesRequest() {
+        public obtenerClientesRequest() {
         }
         
-        public listarClientesRequest(FEPawsAndTails.BackendAPI.listarClientesRequestBody Body) {
+        public obtenerClientesRequest(FEPawsAndTails.BackendAPI.obtenerClientesRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1889,9 +2028,9 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class listarClientesRequestBody {
+    public partial class obtenerClientesRequestBody {
         
-        public listarClientesRequestBody() {
+        public obtenerClientesRequestBody() {
         }
     }
     
@@ -1899,15 +2038,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarClientesResponse {
+    public partial class obtenerClientesResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarClientesResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarClientesResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerClientesResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerClientesResponseBody Body;
         
-        public listarClientesResponse() {
+        public obtenerClientesResponse() {
         }
         
-        public listarClientesResponse(FEPawsAndTails.BackendAPI.listarClientesResponseBody Body) {
+        public obtenerClientesResponse(FEPawsAndTails.BackendAPI.obtenerClientesResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1916,16 +2055,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class listarClientesResponseBody {
+    public partial class obtenerClientesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.CLIENTE[] listarClientesResult;
+        public FEPawsAndTails.BackendAPI.CLIENTE[] obtenerClientesResult;
         
-        public listarClientesResponseBody() {
+        public obtenerClientesResponseBody() {
         }
         
-        public listarClientesResponseBody(FEPawsAndTails.BackendAPI.CLIENTE[] listarClientesResult) {
-            this.listarClientesResult = listarClientesResult;
+        public obtenerClientesResponseBody(FEPawsAndTails.BackendAPI.CLIENTE[] obtenerClientesResult) {
+            this.obtenerClientesResult = obtenerClientesResult;
         }
     }
     
@@ -2145,15 +2284,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarDetallesFacturaRequest {
+    public partial class obtenerDetallesFacturaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarDetallesFactura", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarDetallesFacturaRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerDetallesFactura", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequestBody Body;
         
-        public listarDetallesFacturaRequest() {
+        public obtenerDetallesFacturaRequest() {
         }
         
-        public listarDetallesFacturaRequest(FEPawsAndTails.BackendAPI.listarDetallesFacturaRequestBody Body) {
+        public obtenerDetallesFacturaRequest(FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -2162,15 +2301,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class listarDetallesFacturaRequestBody {
+    public partial class obtenerDetallesFacturaRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public int idFactura;
         
-        public listarDetallesFacturaRequestBody() {
+        public obtenerDetallesFacturaRequestBody() {
         }
         
-        public listarDetallesFacturaRequestBody(int idFactura) {
+        public obtenerDetallesFacturaRequestBody(int idFactura) {
             this.idFactura = idFactura;
         }
     }
@@ -2179,15 +2318,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarDetallesFacturaResponse {
+    public partial class obtenerDetallesFacturaResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarDetallesFacturaResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarDetallesFacturaResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerDetallesFacturaResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponseBody Body;
         
-        public listarDetallesFacturaResponse() {
+        public obtenerDetallesFacturaResponse() {
         }
         
-        public listarDetallesFacturaResponse(FEPawsAndTails.BackendAPI.listarDetallesFacturaResponseBody Body) {
+        public obtenerDetallesFacturaResponse(FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -2196,16 +2335,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class listarDetallesFacturaResponseBody {
+    public partial class obtenerDetallesFacturaResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.DETALLE_FACTURA[] listarDetallesFacturaResult;
+        public FEPawsAndTails.BackendAPI.DETALLE_FACTURA[] obtenerDetallesFacturaResult;
         
-        public listarDetallesFacturaResponseBody() {
+        public obtenerDetallesFacturaResponseBody() {
         }
         
-        public listarDetallesFacturaResponseBody(FEPawsAndTails.BackendAPI.DETALLE_FACTURA[] listarDetallesFacturaResult) {
-            this.listarDetallesFacturaResult = listarDetallesFacturaResult;
+        public obtenerDetallesFacturaResponseBody(FEPawsAndTails.BackendAPI.DETALLE_FACTURA[] obtenerDetallesFacturaResult) {
+            this.obtenerDetallesFacturaResult = obtenerDetallesFacturaResult;
         }
     }
     
@@ -2349,15 +2488,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFacturasRequest {
+    public partial class obtenerFacturasRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFacturas", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarFacturasRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerFacturas", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerFacturasRequestBody Body;
         
-        public listarFacturasRequest() {
+        public obtenerFacturasRequest() {
         }
         
-        public listarFacturasRequest(FEPawsAndTails.BackendAPI.listarFacturasRequestBody Body) {
+        public obtenerFacturasRequest(FEPawsAndTails.BackendAPI.obtenerFacturasRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -2366,9 +2505,9 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class listarFacturasRequestBody {
+    public partial class obtenerFacturasRequestBody {
         
-        public listarFacturasRequestBody() {
+        public obtenerFacturasRequestBody() {
         }
     }
     
@@ -2376,15 +2515,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFacturasResponse {
+    public partial class obtenerFacturasResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFacturasResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarFacturasResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerFacturasResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerFacturasResponseBody Body;
         
-        public listarFacturasResponse() {
+        public obtenerFacturasResponse() {
         }
         
-        public listarFacturasResponse(FEPawsAndTails.BackendAPI.listarFacturasResponseBody Body) {
+        public obtenerFacturasResponse(FEPawsAndTails.BackendAPI.obtenerFacturasResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -2393,16 +2532,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class listarFacturasResponseBody {
+    public partial class obtenerFacturasResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.FACTURA[] listarFacturasResult;
+        public FEPawsAndTails.BackendAPI.FACTURA[] obtenerFacturasResult;
         
-        public listarFacturasResponseBody() {
+        public obtenerFacturasResponseBody() {
         }
         
-        public listarFacturasResponseBody(FEPawsAndTails.BackendAPI.FACTURA[] listarFacturasResult) {
-            this.listarFacturasResult = listarFacturasResult;
+        public obtenerFacturasResponseBody(FEPawsAndTails.BackendAPI.FACTURA[] obtenerFacturasResult) {
+            this.obtenerFacturasResult = obtenerFacturasResult;
         }
     }
     
@@ -2471,6 +2610,74 @@ namespace FEPawsAndTails.BackendAPI {
         
         public obtenerFacturaPorIDResponseBody(FEPawsAndTails.BackendAPI.FACTURA obtenerFacturaPorIDResult) {
             this.obtenerFacturaPorIDResult = obtenerFacturaPorIDResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class obtenerFacturasPorCedulaClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerFacturasPorCedulaCliente", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequestBody Body;
+        
+        public obtenerFacturasPorCedulaClienteRequest() {
+        }
+        
+        public obtenerFacturasPorCedulaClienteRequest(FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class obtenerFacturasPorCedulaClienteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string cedula;
+        
+        public obtenerFacturasPorCedulaClienteRequestBody() {
+        }
+        
+        public obtenerFacturasPorCedulaClienteRequestBody(string cedula) {
+            this.cedula = cedula;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class obtenerFacturasPorCedulaClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerFacturasPorCedulaClienteResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponseBody Body;
+        
+        public obtenerFacturasPorCedulaClienteResponse() {
+        }
+        
+        public obtenerFacturasPorCedulaClienteResponse(FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class obtenerFacturasPorCedulaClienteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FEPawsAndTails.BackendAPI.FACTURA[] obtenerFacturasPorCedulaClienteResult;
+        
+        public obtenerFacturasPorCedulaClienteResponseBody() {
+        }
+        
+        public obtenerFacturasPorCedulaClienteResponseBody(FEPawsAndTails.BackendAPI.FACTURA[] obtenerFacturasPorCedulaClienteResult) {
+            this.obtenerFacturasPorCedulaClienteResult = obtenerFacturasPorCedulaClienteResult;
         }
     }
     
@@ -2614,15 +2821,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarImagenesProductoRequest {
+    public partial class actualizarEstadoFacturaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarImagenesProducto", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarImagenesProductoRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="actualizarEstadoFactura", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequestBody Body;
         
-        public listarImagenesProductoRequest() {
+        public actualizarEstadoFacturaRequest() {
         }
         
-        public listarImagenesProductoRequest(FEPawsAndTails.BackendAPI.listarImagenesProductoRequestBody Body) {
+        public actualizarEstadoFacturaRequest(FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -2631,15 +2838,87 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class listarImagenesProductoRequestBody {
+    public partial class actualizarEstadoFacturaRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int idFactura;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string nuevoEstado;
+        
+        public actualizarEstadoFacturaRequestBody() {
+        }
+        
+        public actualizarEstadoFacturaRequestBody(int idFactura, string nuevoEstado) {
+            this.idFactura = idFactura;
+            this.nuevoEstado = nuevoEstado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class actualizarEstadoFacturaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="actualizarEstadoFacturaResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponseBody Body;
+        
+        public actualizarEstadoFacturaResponse() {
+        }
+        
+        public actualizarEstadoFacturaResponse(FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class actualizarEstadoFacturaResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool actualizarEstadoFacturaResult;
+        
+        public actualizarEstadoFacturaResponseBody() {
+        }
+        
+        public actualizarEstadoFacturaResponseBody(bool actualizarEstadoFacturaResult) {
+            this.actualizarEstadoFacturaResult = actualizarEstadoFacturaResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class obtenerImagenesProductoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerImagenesProducto", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequestBody Body;
+        
+        public obtenerImagenesProductoRequest() {
+        }
+        
+        public obtenerImagenesProductoRequest(FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class obtenerImagenesProductoRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public int idProducto;
         
-        public listarImagenesProductoRequestBody() {
+        public obtenerImagenesProductoRequestBody() {
         }
         
-        public listarImagenesProductoRequestBody(int idProducto) {
+        public obtenerImagenesProductoRequestBody(int idProducto) {
             this.idProducto = idProducto;
         }
     }
@@ -2648,15 +2927,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarImagenesProductoResponse {
+    public partial class obtenerImagenesProductoResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarImagenesProductoResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.listarImagenesProductoResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerImagenesProductoResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponseBody Body;
         
-        public listarImagenesProductoResponse() {
+        public obtenerImagenesProductoResponse() {
         }
         
-        public listarImagenesProductoResponse(FEPawsAndTails.BackendAPI.listarImagenesProductoResponseBody Body) {
+        public obtenerImagenesProductoResponse(FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -2665,16 +2944,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class listarImagenesProductoResponseBody {
+    public partial class obtenerImagenesProductoResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.IMAGEN[] listarImagenesProductoResult;
+        public FEPawsAndTails.BackendAPI.IMAGEN[] obtenerImagenesProductoResult;
         
-        public listarImagenesProductoResponseBody() {
+        public obtenerImagenesProductoResponseBody() {
         }
         
-        public listarImagenesProductoResponseBody(FEPawsAndTails.BackendAPI.IMAGEN[] listarImagenesProductoResult) {
-            this.listarImagenesProductoResult = listarImagenesProductoResult;
+        public obtenerImagenesProductoResponseBody(FEPawsAndTails.BackendAPI.IMAGEN[] obtenerImagenesProductoResult) {
+            this.obtenerImagenesProductoResult = obtenerImagenesProductoResult;
         }
     }
     
@@ -2811,15 +3090,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarProductoPorNombreRequest {
+    public partial class obtenerProductoPorNombreRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarProductoPorNombre", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerProductoPorNombre", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequestBody Body;
         
-        public buscarProductoPorNombreRequest() {
+        public obtenerProductoPorNombreRequest() {
         }
         
-        public buscarProductoPorNombreRequest(FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequestBody Body) {
+        public obtenerProductoPorNombreRequest(FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -2828,15 +3107,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class buscarProductoPorNombreRequestBody {
+    public partial class obtenerProductoPorNombreRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string nombre;
         
-        public buscarProductoPorNombreRequestBody() {
+        public obtenerProductoPorNombreRequestBody() {
         }
         
-        public buscarProductoPorNombreRequestBody(string nombre) {
+        public obtenerProductoPorNombreRequestBody(string nombre) {
             this.nombre = nombre;
         }
     }
@@ -2845,15 +3124,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarProductoPorNombreResponse {
+    public partial class obtenerProductoPorNombreResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarProductoPorNombreResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerProductoPorNombreResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponseBody Body;
         
-        public buscarProductoPorNombreResponse() {
+        public obtenerProductoPorNombreResponse() {
         }
         
-        public buscarProductoPorNombreResponse(FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponseBody Body) {
+        public obtenerProductoPorNombreResponse(FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -2862,16 +3141,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class buscarProductoPorNombreResponseBody {
+    public partial class obtenerProductoPorNombreResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.PRODUCTO[] buscarProductoPorNombreResult;
+        public FEPawsAndTails.BackendAPI.PRODUCTO[] obtenerProductoPorNombreResult;
         
-        public buscarProductoPorNombreResponseBody() {
+        public obtenerProductoPorNombreResponseBody() {
         }
         
-        public buscarProductoPorNombreResponseBody(FEPawsAndTails.BackendAPI.PRODUCTO[] buscarProductoPorNombreResult) {
-            this.buscarProductoPorNombreResult = buscarProductoPorNombreResult;
+        public obtenerProductoPorNombreResponseBody(FEPawsAndTails.BackendAPI.PRODUCTO[] obtenerProductoPorNombreResult) {
+            this.obtenerProductoPorNombreResult = obtenerProductoPorNombreResult;
         }
     }
     
@@ -2879,15 +3158,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarProductoPorIdRequest {
+    public partial class obtenerProductoPorIdRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarProductoPorId", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.buscarProductoPorIdRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerProductoPorId", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequestBody Body;
         
-        public buscarProductoPorIdRequest() {
+        public obtenerProductoPorIdRequest() {
         }
         
-        public buscarProductoPorIdRequest(FEPawsAndTails.BackendAPI.buscarProductoPorIdRequestBody Body) {
+        public obtenerProductoPorIdRequest(FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -2896,15 +3175,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class buscarProductoPorIdRequestBody {
+    public partial class obtenerProductoPorIdRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public int id;
         
-        public buscarProductoPorIdRequestBody() {
+        public obtenerProductoPorIdRequestBody() {
         }
         
-        public buscarProductoPorIdRequestBody(int id) {
+        public obtenerProductoPorIdRequestBody(int id) {
             this.id = id;
         }
     }
@@ -2913,15 +3192,15 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarProductoPorIdResponse {
+    public partial class obtenerProductoPorIdResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarProductoPorIdResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FEPawsAndTails.BackendAPI.buscarProductoPorIdResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="obtenerProductoPorIdResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponseBody Body;
         
-        public buscarProductoPorIdResponse() {
+        public obtenerProductoPorIdResponse() {
         }
         
-        public buscarProductoPorIdResponse(FEPawsAndTails.BackendAPI.buscarProductoPorIdResponseBody Body) {
+        public obtenerProductoPorIdResponse(FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -2930,16 +3209,16 @@ namespace FEPawsAndTails.BackendAPI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class buscarProductoPorIdResponseBody {
+    public partial class obtenerProductoPorIdResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.PRODUCTO buscarProductoPorIdResult;
+        public FEPawsAndTails.BackendAPI.PRODUCTO obtenerProductoPorIdResult;
         
-        public buscarProductoPorIdResponseBody() {
+        public obtenerProductoPorIdResponseBody() {
         }
         
-        public buscarProductoPorIdResponseBody(FEPawsAndTails.BackendAPI.PRODUCTO buscarProductoPorIdResult) {
-            this.buscarProductoPorIdResult = buscarProductoPorIdResult;
+        public obtenerProductoPorIdResponseBody(FEPawsAndTails.BackendAPI.PRODUCTO obtenerProductoPorIdResult) {
+            this.obtenerProductoPorIdResult = obtenerProductoPorIdResult;
         }
     }
     
@@ -3171,6 +3450,186 @@ namespace FEPawsAndTails.BackendAPI {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class registrarUsuarioClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="registrarUsuarioCliente", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequestBody Body;
+        
+        public registrarUsuarioClienteRequest() {
+        }
+        
+        public registrarUsuarioClienteRequest(FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class registrarUsuarioClienteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nombreUsuario;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string correo;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string password;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string nombreCliente;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string apellidoCliente;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string cedulaRuc;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string telefono;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.Nullable<System.DateTime> fechaNacimiento;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string direccion;
+        
+        public registrarUsuarioClienteRequestBody() {
+        }
+        
+        public registrarUsuarioClienteRequestBody(string nombreUsuario, string correo, string password, string nombreCliente, string apellidoCliente, string cedulaRuc, string telefono, System.Nullable<System.DateTime> fechaNacimiento, string direccion) {
+            this.nombreUsuario = nombreUsuario;
+            this.correo = correo;
+            this.password = password;
+            this.nombreCliente = nombreCliente;
+            this.apellidoCliente = apellidoCliente;
+            this.cedulaRuc = cedulaRuc;
+            this.telefono = telefono;
+            this.fechaNacimiento = fechaNacimiento;
+            this.direccion = direccion;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class registrarUsuarioClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="registrarUsuarioClienteResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponseBody Body;
+        
+        public registrarUsuarioClienteResponse() {
+        }
+        
+        public registrarUsuarioClienteResponse(FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class registrarUsuarioClienteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool registrarUsuarioClienteResult;
+        
+        public registrarUsuarioClienteResponseBody() {
+        }
+        
+        public registrarUsuarioClienteResponseBody(bool registrarUsuarioClienteResult) {
+            this.registrarUsuarioClienteResult = registrarUsuarioClienteResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class realizarCompraRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="realizarCompra", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.realizarCompraRequestBody Body;
+        
+        public realizarCompraRequest() {
+        }
+        
+        public realizarCompraRequest(FEPawsAndTails.BackendAPI.realizarCompraRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class realizarCompraRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FEPawsAndTails.BackendAPI.carritoDTO carrito;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string direccion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string metodoPago;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int idUsuario;
+        
+        public realizarCompraRequestBody() {
+        }
+        
+        public realizarCompraRequestBody(FEPawsAndTails.BackendAPI.carritoDTO carrito, string direccion, string metodoPago, int idUsuario) {
+            this.carrito = carrito;
+            this.direccion = direccion;
+            this.metodoPago = metodoPago;
+            this.idUsuario = idUsuario;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class realizarCompraResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="realizarCompraResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FEPawsAndTails.BackendAPI.realizarCompraResponseBody Body;
+        
+        public realizarCompraResponse() {
+        }
+        
+        public realizarCompraResponse(FEPawsAndTails.BackendAPI.realizarCompraResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class realizarCompraResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool realizarCompraResult;
+        
+        public realizarCompraResponseBody() {
+        }
+        
+        public realizarCompraResponseBody(bool realizarCompraResult) {
+            this.realizarCompraResult = realizarCompraResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebServiceGestionSoapChannel : FEPawsAndTails.BackendAPI.WebServiceGestionSoap, System.ServiceModel.IClientChannel {
     }
@@ -3199,51 +3658,51 @@ namespace FEPawsAndTails.BackendAPI {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.listarCategoriasResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarCategorias(FEPawsAndTails.BackendAPI.listarCategoriasRequest request) {
-            return base.Channel.listarCategorias(request);
+        FEPawsAndTails.BackendAPI.obtenerCategoriasResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerCategorias(FEPawsAndTails.BackendAPI.obtenerCategoriasRequest request) {
+            return base.Channel.obtenerCategorias(request);
         }
         
-        public FEPawsAndTails.BackendAPI.CATEGORIA[] listarCategorias() {
-            FEPawsAndTails.BackendAPI.listarCategoriasRequest inValue = new FEPawsAndTails.BackendAPI.listarCategoriasRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarCategoriasRequestBody();
-            FEPawsAndTails.BackendAPI.listarCategoriasResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarCategorias(inValue);
-            return retVal.Body.listarCategoriasResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarCategoriasResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarCategoriasAsync(FEPawsAndTails.BackendAPI.listarCategoriasRequest request) {
-            return base.Channel.listarCategoriasAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarCategoriasResponse> listarCategoriasAsync() {
-            FEPawsAndTails.BackendAPI.listarCategoriasRequest inValue = new FEPawsAndTails.BackendAPI.listarCategoriasRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarCategoriasRequestBody();
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarCategoriasAsync(inValue);
+        public FEPawsAndTails.BackendAPI.CATEGORIA[] obtenerCategorias() {
+            FEPawsAndTails.BackendAPI.obtenerCategoriasRequest inValue = new FEPawsAndTails.BackendAPI.obtenerCategoriasRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerCategoriasRequestBody();
+            FEPawsAndTails.BackendAPI.obtenerCategoriasResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerCategorias(inValue);
+            return retVal.Body.obtenerCategoriasResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.buscarCategoriaPorId(FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequest request) {
-            return base.Channel.buscarCategoriaPorId(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerCategoriasResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerCategoriasAsync(FEPawsAndTails.BackendAPI.obtenerCategoriasRequest request) {
+            return base.Channel.obtenerCategoriasAsync(request);
         }
         
-        public FEPawsAndTails.BackendAPI.CATEGORIA buscarCategoriaPorId(int id) {
-            FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequest inValue = new FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequestBody();
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerCategoriasResponse> obtenerCategoriasAsync() {
+            FEPawsAndTails.BackendAPI.obtenerCategoriasRequest inValue = new FEPawsAndTails.BackendAPI.obtenerCategoriasRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerCategoriasRequestBody();
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerCategoriasAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerCategoriaPorId(FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequest request) {
+            return base.Channel.obtenerCategoriaPorId(request);
+        }
+        
+        public FEPawsAndTails.BackendAPI.CATEGORIA obtenerCategoriaPorId(int id) {
+            FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequest inValue = new FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequestBody();
             inValue.Body.id = id;
-            FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).buscarCategoriaPorId(inValue);
-            return retVal.Body.buscarCategoriaPorIdResult;
+            FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerCategoriaPorId(inValue);
+            return retVal.Body.obtenerCategoriaPorIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.buscarCategoriaPorIdAsync(FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequest request) {
-            return base.Channel.buscarCategoriaPorIdAsync(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerCategoriaPorIdAsync(FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequest request) {
+            return base.Channel.obtenerCategoriaPorIdAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarCategoriaPorIdResponse> buscarCategoriaPorIdAsync(int id) {
-            FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequest inValue = new FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.buscarCategoriaPorIdRequestBody();
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdResponse> obtenerCategoriaPorIdAsync(int id) {
+            FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequest inValue = new FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerCategoriaPorIdRequestBody();
             inValue.Body.id = id;
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).buscarCategoriaPorIdAsync(inValue);
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerCategoriaPorIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3307,26 +3766,26 @@ namespace FEPawsAndTails.BackendAPI {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.listarClientesResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarClientes(FEPawsAndTails.BackendAPI.listarClientesRequest request) {
-            return base.Channel.listarClientes(request);
+        FEPawsAndTails.BackendAPI.obtenerClientesResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerClientes(FEPawsAndTails.BackendAPI.obtenerClientesRequest request) {
+            return base.Channel.obtenerClientes(request);
         }
         
-        public FEPawsAndTails.BackendAPI.CLIENTE[] listarClientes() {
-            FEPawsAndTails.BackendAPI.listarClientesRequest inValue = new FEPawsAndTails.BackendAPI.listarClientesRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarClientesRequestBody();
-            FEPawsAndTails.BackendAPI.listarClientesResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarClientes(inValue);
-            return retVal.Body.listarClientesResult;
+        public FEPawsAndTails.BackendAPI.CLIENTE[] obtenerClientes() {
+            FEPawsAndTails.BackendAPI.obtenerClientesRequest inValue = new FEPawsAndTails.BackendAPI.obtenerClientesRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerClientesRequestBody();
+            FEPawsAndTails.BackendAPI.obtenerClientesResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerClientes(inValue);
+            return retVal.Body.obtenerClientesResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarClientesResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarClientesAsync(FEPawsAndTails.BackendAPI.listarClientesRequest request) {
-            return base.Channel.listarClientesAsync(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerClientesResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerClientesAsync(FEPawsAndTails.BackendAPI.obtenerClientesRequest request) {
+            return base.Channel.obtenerClientesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarClientesResponse> listarClientesAsync() {
-            FEPawsAndTails.BackendAPI.listarClientesRequest inValue = new FEPawsAndTails.BackendAPI.listarClientesRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarClientesRequestBody();
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarClientesAsync(inValue);
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerClientesResponse> obtenerClientesAsync() {
+            FEPawsAndTails.BackendAPI.obtenerClientesRequest inValue = new FEPawsAndTails.BackendAPI.obtenerClientesRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerClientesRequestBody();
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerClientesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3417,28 +3876,28 @@ namespace FEPawsAndTails.BackendAPI {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.listarDetallesFacturaResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarDetallesFactura(FEPawsAndTails.BackendAPI.listarDetallesFacturaRequest request) {
-            return base.Channel.listarDetallesFactura(request);
+        FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerDetallesFactura(FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequest request) {
+            return base.Channel.obtenerDetallesFactura(request);
         }
         
-        public FEPawsAndTails.BackendAPI.DETALLE_FACTURA[] listarDetallesFactura(int idFactura) {
-            FEPawsAndTails.BackendAPI.listarDetallesFacturaRequest inValue = new FEPawsAndTails.BackendAPI.listarDetallesFacturaRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarDetallesFacturaRequestBody();
+        public FEPawsAndTails.BackendAPI.DETALLE_FACTURA[] obtenerDetallesFactura(int idFactura) {
+            FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequest inValue = new FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequestBody();
             inValue.Body.idFactura = idFactura;
-            FEPawsAndTails.BackendAPI.listarDetallesFacturaResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarDetallesFactura(inValue);
-            return retVal.Body.listarDetallesFacturaResult;
+            FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerDetallesFactura(inValue);
+            return retVal.Body.obtenerDetallesFacturaResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarDetallesFacturaResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarDetallesFacturaAsync(FEPawsAndTails.BackendAPI.listarDetallesFacturaRequest request) {
-            return base.Channel.listarDetallesFacturaAsync(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerDetallesFacturaAsync(FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequest request) {
+            return base.Channel.obtenerDetallesFacturaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarDetallesFacturaResponse> listarDetallesFacturaAsync(int idFactura) {
-            FEPawsAndTails.BackendAPI.listarDetallesFacturaRequest inValue = new FEPawsAndTails.BackendAPI.listarDetallesFacturaRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarDetallesFacturaRequestBody();
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerDetallesFacturaResponse> obtenerDetallesFacturaAsync(int idFactura) {
+            FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequest inValue = new FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerDetallesFacturaRequestBody();
             inValue.Body.idFactura = idFactura;
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarDetallesFacturaAsync(inValue);
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerDetallesFacturaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3500,26 +3959,26 @@ namespace FEPawsAndTails.BackendAPI {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.listarFacturasResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarFacturas(FEPawsAndTails.BackendAPI.listarFacturasRequest request) {
-            return base.Channel.listarFacturas(request);
+        FEPawsAndTails.BackendAPI.obtenerFacturasResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerFacturas(FEPawsAndTails.BackendAPI.obtenerFacturasRequest request) {
+            return base.Channel.obtenerFacturas(request);
         }
         
-        public FEPawsAndTails.BackendAPI.FACTURA[] listarFacturas() {
-            FEPawsAndTails.BackendAPI.listarFacturasRequest inValue = new FEPawsAndTails.BackendAPI.listarFacturasRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarFacturasRequestBody();
-            FEPawsAndTails.BackendAPI.listarFacturasResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarFacturas(inValue);
-            return retVal.Body.listarFacturasResult;
+        public FEPawsAndTails.BackendAPI.FACTURA[] obtenerFacturas() {
+            FEPawsAndTails.BackendAPI.obtenerFacturasRequest inValue = new FEPawsAndTails.BackendAPI.obtenerFacturasRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerFacturasRequestBody();
+            FEPawsAndTails.BackendAPI.obtenerFacturasResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerFacturas(inValue);
+            return retVal.Body.obtenerFacturasResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarFacturasResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarFacturasAsync(FEPawsAndTails.BackendAPI.listarFacturasRequest request) {
-            return base.Channel.listarFacturasAsync(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerFacturasResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerFacturasAsync(FEPawsAndTails.BackendAPI.obtenerFacturasRequest request) {
+            return base.Channel.obtenerFacturasAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarFacturasResponse> listarFacturasAsync() {
-            FEPawsAndTails.BackendAPI.listarFacturasRequest inValue = new FEPawsAndTails.BackendAPI.listarFacturasRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarFacturasRequestBody();
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarFacturasAsync(inValue);
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerFacturasResponse> obtenerFacturasAsync() {
+            FEPawsAndTails.BackendAPI.obtenerFacturasRequest inValue = new FEPawsAndTails.BackendAPI.obtenerFacturasRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerFacturasRequestBody();
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerFacturasAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3545,6 +4004,31 @@ namespace FEPawsAndTails.BackendAPI {
             inValue.Body = new FEPawsAndTails.BackendAPI.obtenerFacturaPorIDRequestBody();
             inValue.Body.idFactura = idFactura;
             return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerFacturaPorIDAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerFacturasPorCedulaCliente(FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequest request) {
+            return base.Channel.obtenerFacturasPorCedulaCliente(request);
+        }
+        
+        public FEPawsAndTails.BackendAPI.FACTURA[] obtenerFacturasPorCedulaCliente(string cedula) {
+            FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequest inValue = new FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequestBody();
+            inValue.Body.cedula = cedula;
+            FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerFacturasPorCedulaCliente(inValue);
+            return retVal.Body.obtenerFacturasPorCedulaClienteResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerFacturasPorCedulaClienteAsync(FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequest request) {
+            return base.Channel.obtenerFacturasPorCedulaClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteResponse> obtenerFacturasPorCedulaClienteAsync(string cedula) {
+            FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequest inValue = new FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerFacturasPorCedulaClienteRequestBody();
+            inValue.Body.cedula = cedula;
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerFacturasPorCedulaClienteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3598,28 +4082,55 @@ namespace FEPawsAndTails.BackendAPI {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.listarImagenesProductoResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarImagenesProducto(FEPawsAndTails.BackendAPI.listarImagenesProductoRequest request) {
-            return base.Channel.listarImagenesProducto(request);
+        FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.actualizarEstadoFactura(FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequest request) {
+            return base.Channel.actualizarEstadoFactura(request);
         }
         
-        public FEPawsAndTails.BackendAPI.IMAGEN[] listarImagenesProducto(int idProducto) {
-            FEPawsAndTails.BackendAPI.listarImagenesProductoRequest inValue = new FEPawsAndTails.BackendAPI.listarImagenesProductoRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarImagenesProductoRequestBody();
-            inValue.Body.idProducto = idProducto;
-            FEPawsAndTails.BackendAPI.listarImagenesProductoResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarImagenesProducto(inValue);
-            return retVal.Body.listarImagenesProductoResult;
+        public bool actualizarEstadoFactura(int idFactura, string nuevoEstado) {
+            FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequest inValue = new FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequestBody();
+            inValue.Body.idFactura = idFactura;
+            inValue.Body.nuevoEstado = nuevoEstado;
+            FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).actualizarEstadoFactura(inValue);
+            return retVal.Body.actualizarEstadoFacturaResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarImagenesProductoResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.listarImagenesProductoAsync(FEPawsAndTails.BackendAPI.listarImagenesProductoRequest request) {
-            return base.Channel.listarImagenesProductoAsync(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.actualizarEstadoFacturaAsync(FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequest request) {
+            return base.Channel.actualizarEstadoFacturaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.listarImagenesProductoResponse> listarImagenesProductoAsync(int idProducto) {
-            FEPawsAndTails.BackendAPI.listarImagenesProductoRequest inValue = new FEPawsAndTails.BackendAPI.listarImagenesProductoRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.listarImagenesProductoRequestBody();
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.actualizarEstadoFacturaResponse> actualizarEstadoFacturaAsync(int idFactura, string nuevoEstado) {
+            FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequest inValue = new FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.actualizarEstadoFacturaRequestBody();
+            inValue.Body.idFactura = idFactura;
+            inValue.Body.nuevoEstado = nuevoEstado;
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).actualizarEstadoFacturaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerImagenesProducto(FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequest request) {
+            return base.Channel.obtenerImagenesProducto(request);
+        }
+        
+        public FEPawsAndTails.BackendAPI.IMAGEN[] obtenerImagenesProducto(int idProducto) {
+            FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequest inValue = new FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequestBody();
             inValue.Body.idProducto = idProducto;
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).listarImagenesProductoAsync(inValue);
+            FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerImagenesProducto(inValue);
+            return retVal.Body.obtenerImagenesProductoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerImagenesProductoAsync(FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequest request) {
+            return base.Channel.obtenerImagenesProductoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerImagenesProductoResponse> obtenerImagenesProductoAsync(int idProducto) {
+            FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequest inValue = new FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerImagenesProductoRequestBody();
+            inValue.Body.idProducto = idProducto;
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerImagenesProductoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3679,53 +4190,53 @@ namespace FEPawsAndTails.BackendAPI {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.buscarProductoPorNombre(FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequest request) {
-            return base.Channel.buscarProductoPorNombre(request);
+        FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerProductoPorNombre(FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequest request) {
+            return base.Channel.obtenerProductoPorNombre(request);
         }
         
-        public FEPawsAndTails.BackendAPI.PRODUCTO[] buscarProductoPorNombre(string nombre) {
-            FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequest inValue = new FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequestBody();
+        public FEPawsAndTails.BackendAPI.PRODUCTO[] obtenerProductoPorNombre(string nombre) {
+            FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequest inValue = new FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequestBody();
             inValue.Body.nombre = nombre;
-            FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).buscarProductoPorNombre(inValue);
-            return retVal.Body.buscarProductoPorNombreResult;
+            FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerProductoPorNombre(inValue);
+            return retVal.Body.obtenerProductoPorNombreResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.buscarProductoPorNombreAsync(FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequest request) {
-            return base.Channel.buscarProductoPorNombreAsync(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerProductoPorNombreAsync(FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequest request) {
+            return base.Channel.obtenerProductoPorNombreAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarProductoPorNombreResponse> buscarProductoPorNombreAsync(string nombre) {
-            FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequest inValue = new FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.buscarProductoPorNombreRequestBody();
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerProductoPorNombreResponse> obtenerProductoPorNombreAsync(string nombre) {
+            FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequest inValue = new FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerProductoPorNombreRequestBody();
             inValue.Body.nombre = nombre;
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).buscarProductoPorNombreAsync(inValue);
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerProductoPorNombreAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FEPawsAndTails.BackendAPI.buscarProductoPorIdResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.buscarProductoPorId(FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest request) {
-            return base.Channel.buscarProductoPorId(request);
+        FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerProductoPorId(FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequest request) {
+            return base.Channel.obtenerProductoPorId(request);
         }
         
-        public FEPawsAndTails.BackendAPI.PRODUCTO buscarProductoPorId(int id) {
-            FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest inValue = new FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.buscarProductoPorIdRequestBody();
+        public FEPawsAndTails.BackendAPI.PRODUCTO obtenerProductoPorId(int id) {
+            FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequest inValue = new FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequestBody();
             inValue.Body.id = id;
-            FEPawsAndTails.BackendAPI.buscarProductoPorIdResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).buscarProductoPorId(inValue);
-            return retVal.Body.buscarProductoPorIdResult;
+            FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerProductoPorId(inValue);
+            return retVal.Body.obtenerProductoPorIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarProductoPorIdResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.buscarProductoPorIdAsync(FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest request) {
-            return base.Channel.buscarProductoPorIdAsync(request);
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.obtenerProductoPorIdAsync(FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequest request) {
+            return base.Channel.obtenerProductoPorIdAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.buscarProductoPorIdResponse> buscarProductoPorIdAsync(int id) {
-            FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest inValue = new FEPawsAndTails.BackendAPI.buscarProductoPorIdRequest();
-            inValue.Body = new FEPawsAndTails.BackendAPI.buscarProductoPorIdRequestBody();
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.obtenerProductoPorIdResponse> obtenerProductoPorIdAsync(int id) {
+            FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequest inValue = new FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.obtenerProductoPorIdRequestBody();
             inValue.Body.id = id;
-            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).buscarProductoPorIdAsync(inValue);
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).obtenerProductoPorIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3821,6 +4332,78 @@ namespace FEPawsAndTails.BackendAPI {
             inValue.Body.correo = correo;
             inValue.Body.password = password;
             return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).autenticarUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.registrarUsuarioCliente(FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequest request) {
+            return base.Channel.registrarUsuarioCliente(request);
+        }
+        
+        public bool registrarUsuarioCliente(string nombreUsuario, string correo, string password, string nombreCliente, string apellidoCliente, string cedulaRuc, string telefono, System.Nullable<System.DateTime> fechaNacimiento, string direccion) {
+            FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequest inValue = new FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequestBody();
+            inValue.Body.nombreUsuario = nombreUsuario;
+            inValue.Body.correo = correo;
+            inValue.Body.password = password;
+            inValue.Body.nombreCliente = nombreCliente;
+            inValue.Body.apellidoCliente = apellidoCliente;
+            inValue.Body.cedulaRuc = cedulaRuc;
+            inValue.Body.telefono = telefono;
+            inValue.Body.fechaNacimiento = fechaNacimiento;
+            inValue.Body.direccion = direccion;
+            FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).registrarUsuarioCliente(inValue);
+            return retVal.Body.registrarUsuarioClienteResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.registrarUsuarioClienteAsync(FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequest request) {
+            return base.Channel.registrarUsuarioClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.registrarUsuarioClienteResponse> registrarUsuarioClienteAsync(string nombreUsuario, string correo, string password, string nombreCliente, string apellidoCliente, string cedulaRuc, string telefono, System.Nullable<System.DateTime> fechaNacimiento, string direccion) {
+            FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequest inValue = new FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.registrarUsuarioClienteRequestBody();
+            inValue.Body.nombreUsuario = nombreUsuario;
+            inValue.Body.correo = correo;
+            inValue.Body.password = password;
+            inValue.Body.nombreCliente = nombreCliente;
+            inValue.Body.apellidoCliente = apellidoCliente;
+            inValue.Body.cedulaRuc = cedulaRuc;
+            inValue.Body.telefono = telefono;
+            inValue.Body.fechaNacimiento = fechaNacimiento;
+            inValue.Body.direccion = direccion;
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).registrarUsuarioClienteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FEPawsAndTails.BackendAPI.realizarCompraResponse FEPawsAndTails.BackendAPI.WebServiceGestionSoap.realizarCompra(FEPawsAndTails.BackendAPI.realizarCompraRequest request) {
+            return base.Channel.realizarCompra(request);
+        }
+        
+        public bool realizarCompra(FEPawsAndTails.BackendAPI.carritoDTO carrito, string direccion, string metodoPago, int idUsuario) {
+            FEPawsAndTails.BackendAPI.realizarCompraRequest inValue = new FEPawsAndTails.BackendAPI.realizarCompraRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.realizarCompraRequestBody();
+            inValue.Body.carrito = carrito;
+            inValue.Body.direccion = direccion;
+            inValue.Body.metodoPago = metodoPago;
+            inValue.Body.idUsuario = idUsuario;
+            FEPawsAndTails.BackendAPI.realizarCompraResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).realizarCompra(inValue);
+            return retVal.Body.realizarCompraResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.realizarCompraResponse> FEPawsAndTails.BackendAPI.WebServiceGestionSoap.realizarCompraAsync(FEPawsAndTails.BackendAPI.realizarCompraRequest request) {
+            return base.Channel.realizarCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.realizarCompraResponse> realizarCompraAsync(FEPawsAndTails.BackendAPI.carritoDTO carrito, string direccion, string metodoPago, int idUsuario) {
+            FEPawsAndTails.BackendAPI.realizarCompraRequest inValue = new FEPawsAndTails.BackendAPI.realizarCompraRequest();
+            inValue.Body = new FEPawsAndTails.BackendAPI.realizarCompraRequestBody();
+            inValue.Body.carrito = carrito;
+            inValue.Body.direccion = direccion;
+            inValue.Body.metodoPago = metodoPago;
+            inValue.Body.idUsuario = idUsuario;
+            return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).realizarCompraAsync(inValue);
         }
     }
 }

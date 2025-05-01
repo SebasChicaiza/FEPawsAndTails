@@ -108,11 +108,58 @@ function validarSesionAntesDePagar() {
         window.location.href = "/Login";
         return;
     }
-
-    // Si llegó aquí, el usuario está logueado
-    alert("Compra procesada correctamente (simulado).");
+    finalizarCompra();
+    
     // Aquí podrías continuar con el proceso de pago real, enviar datos, etc.
 }
+function finalizarCompra() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const cuenta = JSON.parse(localStorage.getItem("cuenta"));
+
+    if (!cuenta) {
+        alert("⚠️ Debes iniciar sesión para realizar la compra.");
+        return;
+    }
+
+    if (carrito.length === 0) {
+        alert("⚠️ Tu carrito está vacío.");
+        return;
+    }
+
+    const payload = {
+        detalles: carrito.map(p => ({
+            idProducto: p.idProducto,
+            cantidad: p.cantidad
+        })),
+        direccion: document.getElementById("direccion").value,
+        metodoPago: document.getElementById("metodoPago").value,
+        idUsuario: cuenta.id
+    };
+
+    fetch('/Carrito/CrearFacturaConDetalle', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                alert("✅ Compra realizada con éxito");
+                localStorage.removeItem("carrito");
+                window.location.href = "/"; // Redirige a inicio o gracias
+            } else {
+                alert("❌ Error al procesar la compra");
+                console.error(data.error);
+            }
+        })
+        .catch(err => {
+            console.error("Error en fetch:", err);
+            alert("❌ Error de conexión");
+        });
+}
+
 /*Iniciar Sesion*/
 function iniciarSesion(event) {
     event.preventDefault();

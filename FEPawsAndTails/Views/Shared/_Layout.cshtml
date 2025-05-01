@@ -34,14 +34,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Index", "Cuenta")">Mi Cuenta</a>
                 </li>
-                <li class="nav-item" id="logout-btn-item" style="display: none;">
-                    <button id="logout-btn" class="nav-link">Cerrar sesión</button>
+                <li class="nav-item" id="admin-btn-item" style="display: none;">
+                    <a id="admin-btn" class="nav-link" href="@Url.Action("Index", "Admin")">Gestión</a>
                 </li>
-               
+                <li class="nav-item" id="logout-btn-item" style="display: none;">
+                    <button id="logout-btn" class="nav-link" onclick="cerrarSesion()">Cerrar sesión</button>
+                </li>
+
             </ul>
         </nav>
     </header>
-    <div class="container">
+    <div class="container" style="min-height: 80dvh;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -64,7 +67,24 @@
             menuIcon.addEventListener('click', function () {
                 navLinks.classList.toggle('show');
             });
+
         });
+        const cuenta = JSON.parse(localStorage.getItem("cuenta"));
+        
+
+        if (cuenta) {
+            document.getElementById('logout-btn-item').style.display = "block";
+            if (cuenta.rol == 2) {
+                // El usuario está logueado y tiene un ID válido
+                document.getElementById('admin-btn-item').style.display = "block";                
+            }  
+        }
+        function cerrarSesion() {
+            localStorage.removeItem("cuenta");
+            alert("Gracias por usar la aplicación. Hasta luego!")
+            window.location.href = "/Login"; 
+        }
+        
     </script>
 
     @RenderSection("Scripts", required: false)

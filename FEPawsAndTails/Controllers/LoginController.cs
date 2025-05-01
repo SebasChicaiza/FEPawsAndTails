@@ -33,7 +33,7 @@ namespace FEPawsAndTails.Controllers
                 // Creamos un objeto con la info necesaria
                 var usuario = new
                 {
-                    rol = respuesta.ROL,
+                    rol = respuesta.ID_ROL,
                     id = respuesta.ID_USUARIO,
                     nombre = respuesta.USR_NOMBRE,
                     correo = respuesta.USR_CORREO
