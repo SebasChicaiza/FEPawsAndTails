@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FEPawsAndTails.BackendAPI.FACTURA>
+
+@{
+    ViewBag.Title = "_FacturasPorCliente";    
+}
+
+@if (!Model.Any())
+{
+    <p>No se encontraron facturas para esta cédula.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var f in Model)
+            {
+                <tr>
+                    <td>@f.ID_FACTURA</td>
+                    <td>@f.FAC_FECHAHORA</td>
+                    <td>$@(f.FAC_TOTAL.HasValue ? f.FAC_TOTAL.Value.ToString("F2") : "0.00")</td>
+                    <td>
+                        <select onchange="cambiarEstado(@f.ID_FACTURA, this.value)" class="form-select">
+                            <option value="CREADA" @(f.FAC_ESTADO == "CREADA" ? "selected" : "")>CREADA</option>
+                            <option value="PAGADA" @(f.FAC_ESTADO == "PAGADA" ? "selected" : "")>PAGADA</option>
+                            <option value="CANCELADA" @(f.FAC_ESTADO == "CANCELADA" ? "selected" : "")>CANCELADA</option>
+                        </select>
+                    </td>
+
+                </tr>
+
+                if (f.DETALLE_FACTURA != null && f.DETALLE_FACTURA.Any())
+                {
+                    <tr>
+                        <td colspan="4">
+                            <ul>
+                                @foreach (var d in f.DETALLE_FACTURA)
+                                {
+                                    <li>
+                                        Producto ID: @d.ID_PRODUCTO - Cantidad: @d.DF_CANT -
+                                        @if (d.DF_CANT.HasValue && d.DF_PRECIO_VENTA.HasValue)
+                                        {
+                                            <text>Subtotal: $@((d.DF_CANT.Value * d.DF_PRECIO_VENTA.Value).ToString("F2"))</text>
+                                        }
+                                        else
+                                        {
+                                            <text>Subtotal: $0.00</text>
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+}

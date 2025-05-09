@@ -1703,7 +1703,7 @@ namespace FEPawsAndTails.BackendAPI {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/crearProducto", ReplyAction="*")]
         System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.crearProductoResponse> crearProductoAsync(FEPawsAndTails.BackendAPI.crearProductoRequest request);
         
-        // CODEGEN: Generating message contract since element name producto from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name categoria from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/actualizarProducto", ReplyAction="*")]
         FEPawsAndTails.BackendAPI.actualizarProductoResponse actualizarProducto(FEPawsAndTails.BackendAPI.actualizarProductoRequest request);
         
@@ -3333,14 +3333,38 @@ namespace FEPawsAndTails.BackendAPI {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class actualizarProductoRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FEPawsAndTails.BackendAPI.PRODUCTO producto;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int idProducto;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string categoria;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string nombre;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string descripcion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public decimal precio;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public int stock;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public FEPawsAndTails.BackendAPI.ArrayOfString fotos;
         
         public actualizarProductoRequestBody() {
         }
         
-        public actualizarProductoRequestBody(FEPawsAndTails.BackendAPI.PRODUCTO producto) {
-            this.producto = producto;
+        public actualizarProductoRequestBody(int idProducto, string categoria, string nombre, string descripcion, decimal precio, int stock, FEPawsAndTails.BackendAPI.ArrayOfString fotos) {
+            this.idProducto = idProducto;
+            this.categoria = categoria;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.precio = precio;
+            this.stock = stock;
+            this.fotos = fotos;
         }
     }
     
@@ -4279,10 +4303,16 @@ namespace FEPawsAndTails.BackendAPI {
             return base.Channel.actualizarProducto(request);
         }
         
-        public bool actualizarProducto(FEPawsAndTails.BackendAPI.PRODUCTO producto) {
+        public bool actualizarProducto(int idProducto, string categoria, string nombre, string descripcion, decimal precio, int stock, FEPawsAndTails.BackendAPI.ArrayOfString fotos) {
             FEPawsAndTails.BackendAPI.actualizarProductoRequest inValue = new FEPawsAndTails.BackendAPI.actualizarProductoRequest();
             inValue.Body = new FEPawsAndTails.BackendAPI.actualizarProductoRequestBody();
-            inValue.Body.producto = producto;
+            inValue.Body.idProducto = idProducto;
+            inValue.Body.categoria = categoria;
+            inValue.Body.nombre = nombre;
+            inValue.Body.descripcion = descripcion;
+            inValue.Body.precio = precio;
+            inValue.Body.stock = stock;
+            inValue.Body.fotos = fotos;
             FEPawsAndTails.BackendAPI.actualizarProductoResponse retVal = ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).actualizarProducto(inValue);
             return retVal.Body.actualizarProductoResult;
         }
@@ -4292,10 +4322,16 @@ namespace FEPawsAndTails.BackendAPI {
             return base.Channel.actualizarProductoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.actualizarProductoResponse> actualizarProductoAsync(FEPawsAndTails.BackendAPI.PRODUCTO producto) {
+        public System.Threading.Tasks.Task<FEPawsAndTails.BackendAPI.actualizarProductoResponse> actualizarProductoAsync(int idProducto, string categoria, string nombre, string descripcion, decimal precio, int stock, FEPawsAndTails.BackendAPI.ArrayOfString fotos) {
             FEPawsAndTails.BackendAPI.actualizarProductoRequest inValue = new FEPawsAndTails.BackendAPI.actualizarProductoRequest();
             inValue.Body = new FEPawsAndTails.BackendAPI.actualizarProductoRequestBody();
-            inValue.Body.producto = producto;
+            inValue.Body.idProducto = idProducto;
+            inValue.Body.categoria = categoria;
+            inValue.Body.nombre = nombre;
+            inValue.Body.descripcion = descripcion;
+            inValue.Body.precio = precio;
+            inValue.Body.stock = stock;
+            inValue.Body.fotos = fotos;
             return ((FEPawsAndTails.BackendAPI.WebServiceGestionSoap)(this)).actualizarProductoAsync(inValue);
         }
         

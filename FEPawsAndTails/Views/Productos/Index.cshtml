@@ -20,7 +20,8 @@
             <h3>@producto.prodNombre</h3>
             <p>@producto.prodDescripcion</p>
             <div class="precio">$@producto.prodPrecio</div>
-            <div class="stock">Disponible en Stock: @producto.prodStock</div>
+            <div class="precio">Stock:</div>
+            <div class="stock" id="stock-@producto.idProducto">@producto.prodStock</div>
 
             <div class="cart-controls">
                 <label for="qty-@producto.idProducto">Cantidad:</label>

@@ -24,7 +24,7 @@
         </div>
         <div>
             <label>Categoría:</label>
-            <input type="number" id="input-cat" name="PROD_CAT" required />
+            <input type="text" id="input-cat" name="PROD_CAT" required />
         </div>
         <div>
             <label>Precio:</label>
@@ -35,6 +35,11 @@
             <label>Stock:</label>
             <input type="number" id="input-stock" name="PROD_STOCK" required />
         </div>
+        <div>
+            <label>URLs de Imágenes (separadas por coma):</label>
+            <textarea id="input-imagenes" name="IMAGENES" rows="2" placeholder="https://img1.jpg, https://img2.jpg"></textarea>
+        </div>
+
 
         <button type="submit" class="btn btn-success" id="submit-btn">Crear</button>
         <button type="button" class="btn btn-secondary" onclick="limpiarFormulario()">Cancelar</button>
@@ -66,13 +71,14 @@
                 <td>@p.prodStock</td>
                 <td>
                     <button type="button" class="btn btn-sm btn-warning"
-                            onclick="editarProducto('@p.idProducto','@p.idCat', '@p.prodNombre', '@p.prodDescripcion', @p.prodPrecio, @p.prodStock)">
+                            onclick="editarProducto('@p.idProducto','@p.prodCat', '@p.prodNombre', '@p.prodDescripcion', @p.prodPrecio, @p.prodStock)">
                         ✏️ Editar
                     </button>
-                    @using (Html.BeginForm("EliminarProducto", "Admin", new { id = p.idProducto }, FormMethod.Post))
-                    {
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar este producto?')">🗑️</button>
-                    }
+                    <!--@using (Html.BeginForm("EliminarProducto", "Admin", new { id = p.idProducto }, FormMethod.Post))
+    {
+        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar este producto?')">🗑️</button>
+    }
+        -->
                 </td>
             </tr>
         }
@@ -90,6 +96,7 @@
             document.getElementById("input-desc").value = desc;
             document.getElementById("input-precio").value = precio;
             document.getElementById("input-stock").value = stock;
+            document.getElementById("input-imagenes").value = imagenes;
         }
 
         function limpiarFormulario() {
@@ -100,6 +107,7 @@
             document.getElementById("input-desc").value = "";
             document.getElementById("input-precio").value = "";
             document.getElementById("input-stock").value = "";
+            document.getElementById("input-imagenes").value = "";
         }
     </script>
 }

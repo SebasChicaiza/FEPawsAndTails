@@ -24,6 +24,33 @@ namespace FEPawsAndTails.Controllers
         {
             return View("Gestion");
         }
+        public ActionResult Factura()
+        {
+            return View(); // Ya no carga facturas por defecto
+        }
+
+        [HttpPost]
+        public ActionResult BuscarFacturasPorCedula(string cedula)
+        {
+            var facturas = client.obtenerFacturasPorCedulaCliente(cedula);
+
+            foreach (var f in facturas)
+            {
+                f.DETALLE_FACTURA = client.obtenerDetallesFactura((int)f.ID_FACTURA);
+            }
+
+            return PartialView("_FacturasPorCliente", facturas);
+        }
+        [HttpGet]
+        public ActionResult ObtenerDetalles(int idFactura)
+        {
+            var detalles = client.obtenerDetallesFactura(idFactura);
+            return PartialView("_DetalleFactura", detalles);
+        }
+
+        
+
+
         public ActionResult Producto()
         {
             //var client = new WebServiceGestionSoapClient();
@@ -44,10 +71,10 @@ namespace FEPawsAndTails.Controllers
         }
         public JsonResult ObtenerProductos()
         {
-            
-            var productos = client.obtenerProductos(); 
+
+            var productos = client.obtenerProductos();
             return Json(productos, JsonRequestBehavior.AllowGet);
-        }       
+        }
 
         public ActionResult CrearProducto()
         {
@@ -71,17 +98,18 @@ namespace FEPawsAndTails.Controllers
             return View("Producto", producto);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult EditarProducto(PRODUCTO producto)
         {
             client.actualizarProducto(producto);
             return RedirectToAction("Producto");
-        }
+        }*/
 
         [HttpPost]
         public ActionResult EliminarProducto(int id)
         {
             client.eliminarProducto(id);
+            
             return RedirectToAction("Producto");
         }
         [HttpPost]
@@ -90,29 +118,84 @@ namespace FEPawsAndTails.Controllers
             var producto = new PRODUCTO
             {
                 ID_PRODUCTO = string.IsNullOrEmpty(form["ID_PRODUCTO"]) ? 0 : int.Parse(form["ID_PRODUCTO"]),
-                ID_CATEGORIA = string.IsNullOrEmpty(form["PROD_CAT"]) ? 0 : int.Parse(form["PROD_CAT"]),
+                CATEGORIA = new BackendAPI.CATEGORIA
+                {
+                    CAT_NOMBRE = form["PROD_CAT"]
+                },
                 PROD_NOMBRE = form["PROD_NOMBRE"],
                 PROD_DESC = form["PROD_DESC"],
                 PROD_PRECIO = decimal.Parse(form["PROD_PRECIO"]),
                 PROD_STOCK = int.Parse(form["PROD_STOCK"])
             };
 
+            // URLs de imágenes ingresadas
+            var imagenesRaw = form["IMAGENES"];
+            var arrayImagenes = new ArrayOfString();
+            if (!string.IsNullOrEmpty(imagenesRaw))
+            {
+                var urls = imagenesRaw.Split(',')
+                    .Select(url => url.Trim())
+                    .Where(url => !string.IsNullOrWhiteSpace(url));
+                arrayImagenes.AddRange(urls);
+
+                // También mapea a producto.IMAGEN si se desea usar en otra lógica
+                producto.IMAGEN = urls.Select(url => new IMAGEN
+                {
+                    IMG_URL = url,
+                    IMG_TIPO = "principal"
+                }).ToArray();
+            }
+
             if (producto.ID_PRODUCTO == 0)
             {
-                // crear nuevo
-                var arrayImagenes = new ArrayOfString(); // Puedes dejarlo vacío si no usas imagenes
-                client.crearProducto(producto.ID_CATEGORIA.ToString(), producto.PROD_NOMBRE, producto.PROD_DESC, (decimal)producto.PROD_PRECIO, (int)producto.PROD_STOCK, arrayImagenes);
+                // Crear nuevo
+                client.crearProducto(
+                    producto.CATEGORIA.CAT_NOMBRE,
+                    producto.PROD_NOMBRE,
+                    producto.PROD_DESC,
+                    producto.PROD_PRECIO ?? 0m,
+                    (int)(producto.PROD_STOCK ?? 0),
+                    arrayImagenes
+                );
             }
             else
             {
-                // actualizar existente
-                client.actualizarProducto(producto);
+                // Actualizar existente
+                client.actualizarProducto(
+                    (int)producto.ID_PRODUCTO,
+                    producto.CATEGORIA.CAT_NOMBRE,
+                    producto.PROD_NOMBRE,
+                    producto.PROD_DESC,
+                    producto.PROD_PRECIO ?? 0m,
+                    (int)(producto.PROD_STOCK ?? 0),
+                    arrayImagenes
+                );
             }
 
             return RedirectToAction("Producto");
         }
 
+        //Facturas        
 
+        [HttpPost]
+        public JsonResult CambiarEstado(int idFactura, string nuevoEstado)
+        {
+            var resultado = client.actualizarEstadoFactura(idFactura, nuevoEstado);
+            return Json(new { success = resultado });
+        }
+        [HttpPost]
+        public JsonResult ActualizarEstadoFactura(int idFactura, string nuevoEstado)
+        {
+            try
+            {
+                bool result = client.actualizarEstadoFactura(idFactura, nuevoEstado);
+                return Json(new { success = result });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, error = ex.Message });
+            }
+        }
 
     }
 }

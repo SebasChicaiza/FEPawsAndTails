@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FEPawsAndTails.BackendAPI.FACTURA>
+
+@{
+    ViewBag.Title = "Factura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">📄 Gestión de Facturas</h2>
+
+<!-- Buscador -->
+<form id="buscar-form" style="text-align:center">
+    <input type="text" name="cedula" id="cedula-input" placeholder="Buscar por cédula del cliente" required />
+    <button type="submit" class="btn btn-primary">🔍 Buscar</button>
+</form>
+
+<!-- Aquí se mostrarán las facturas -->
+<div id="factura-lista" class="mt-4" style="width: 90%; margin: 0 auto;"></div>
+
+
+<script>
+    document.getElementById("buscar-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const cedula = document.getElementById("cedula-input").value;
+
+        const formData = new FormData();
+        formData.append("cedula", cedula);
+
+        fetch("/Admin/BuscarFacturasPorCedula", {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("factura-lista").innerHTML = html;
+            })
+            .catch(() => {
+                alert("Error al buscar facturas.");
+            });
+    });
+    function cambiarEstado(idFactura, nuevoEstado) {
+        fetch("/Admin/ActualizarEstadoFactura", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ idFactura, nuevoEstado })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Estado actualizado correctamente");
+                } else {
+                    alert("Error al actualizar el estado");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    }
+</script>
+
+

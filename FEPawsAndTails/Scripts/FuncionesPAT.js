@@ -21,9 +21,16 @@ function moveCarousel(id, direction) {
 function addToCart(id, name, price, urlimg) {
     const qtyInput = document.getElementById(`qty-${id}`);
     const quantity = parseInt(qtyInput.value);
+    const qtyStock = document.getElementById(`stock-${id}`);
+    const stock = parseInt(qtyStock.textContent.trim());
+    
 
     if (isNaN(quantity) || quantity < 1) {
         alert("Por favor ingresa una cantidad válida.");
+        return;
+    }
+    if(quantity > stock){
+        alert("No se pudo agregar al carrito. Cantidad seleccionada mayor al stock disponible.");
         return;
     }
 
@@ -65,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let subtotal = 0;
 
-    carrito.forEach(p => {
+    carrito.forEach((p, index) => {
         const item = document.createElement("div");
         item.className = "carrito-item";
 
@@ -85,6 +92,13 @@ document.addEventListener("DOMContentLoaded", function () {
         precio.textContent = `$${totalItem.toFixed(2)}`;
         item.appendChild(precio);
 
+        // Botón para eliminar del carrito
+        const botonEliminar = document.createElement("button");
+        botonEliminar.className = "btn-eliminar";
+        botonEliminar.textContent = "❌ Quitar";
+        botonEliminar.onclick = () => eliminarDelCarrito(index);
+        item.appendChild(botonEliminar);
+
         container.appendChild(item);
         subtotal += totalItem;
     });
@@ -97,6 +111,14 @@ document.addEventListener("DOMContentLoaded", function () {
     totalEl.textContent = `$${total.toFixed(2)}`;
     summary.style.display = "block";
 });
+
+function eliminarDelCarrito(index) {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito.splice(index, 1);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    alert("Producto eliminado");
+    window.location.reload(true);
+}
 
 /*Funcion para Inicio de Sesion*/
 /*Verificar que haya una sesion iniciada */
@@ -179,9 +201,9 @@ function iniciarSesion(event) {
                 console.log("Bienvenido:", data.usuario.nombre);
 
                 
-                localStorage.setItem("cuenta", JSON.stringify(data.usuario));
-
-                window.location.href = "/Cuenta";
+                localStorage.setItem("cuenta", JSON.stringify(data.usuario));               
+                alert("Bienvenido!");
+                window.location.href = "/Home";
             } else {
                 alert("Combinación de usuario y contraseña inválido. Vuelva a intentar.");
             }

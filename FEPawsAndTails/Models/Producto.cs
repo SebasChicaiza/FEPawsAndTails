@@ -22,7 +22,8 @@ namespace FEPawsAndTails.Models
         public string prodDescripcion { get; set; }
         public decimal? prodPrecio { get; set; }
         public long? prodStock { get; set; }
-      
+        public string prodCat { get; set; }
+
         public List<ImagenProducto> Imagenes { get; set; } = new List<ImagenProducto>();
 
         // Método de mapeo estático
@@ -34,6 +35,7 @@ namespace FEPawsAndTails.Models
             {
                 idProducto = prodServicio.ID_PRODUCTO,
                 idCat = prodServicio.ID_CATEGORIA,
+                prodCat = prodServicio.CATEGORIA.CAT_NOMBRE,
                 prodNombre = prodServicio.PROD_NOMBRE,
                 prodDescripcion = prodServicio.PROD_DESC,
                 prodPrecio = prodServicio.PROD_PRECIO,
